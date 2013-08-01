@@ -1,0 +1,32 @@
+
+filetype plugin indent on
+
+let g:username = 'Xiaowei.Song'
+let g:email = 'dawnwei.song@gmail.com'
+""unlet g:templates_plugin_loaded = 0
+
+"Auto formatting, rm blank lines"
+""autocmd BufWritePre *.html :%s/\s\+$//e
+
+"auto toggle paste mode"
+""nnoremap <F2>
+set pastetoggle=<F11>
+"set paste
+set showmode
+
+set wrap
+set mouse=
+
+"allow backspace over everything in insert mode"
+set backspace=indent,eol,start
+
+" Disable pylint checking every save"
+let g:pymode_lint_write=0
+" Set key 'R' for run python code
+"let g:pymode_run_key = '<leader>r'
+"
+"
+
+"disable auto folding
+set nofoldenable
+

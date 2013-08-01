@@ -1,0 +1,5 @@
+
+Bundle 'aperezdc/vim-template'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'instant-markdown.vim'
+Bundle 'sgeb/vim-matlab'
