@@ -1,39 +1,12 @@
 #!/bin/bash
 
-function importrc(){
-  test -f $1 && source $1
-}
-
-
-
-#python
-export PYTHONSTARTUP=$HOME/.pythonrc.py
-[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
-
-#for R
-#if [ -f $HOME/bin/R ]; then
-#  export R_HOME=$HOME/lib64/R
-#  export PYTHONPATH=${R_HOME}/library/RSPython/libs:$PYTHONPATH 
-#  export PYTHONPATH=${R_HOME}/library/RSPython/Python:$PYTHONPATH 
-#  export LD_LIBRARY_PATH=${R_HOME}/library/RSPython/libs:${R_HOME}/lib:$LD_LIBRARY_PATH
-#fi 
-
-
-
-
-
 
 #colored man page
 export PAGER='most'
-##export PAGER='/usr/bin/most -s'
-export MANPATH=$HOME/share/man:$MANPATH
 
 #perl
 #source /home/dawnsong/perl5/perlbrew/etc/bashrc
 eval $(perl -I$HOME/lib/perl5 -Mlocal::lib=$HOME)
-
-
-pathmunge $HOME/bak/julia
 
 ##interactive mode
 if [[ $- == *i* ]]; then
@@ -112,8 +85,6 @@ if [[ $- == *i* ]]; then
       wait $pid && notify-send -i $icond/gtk-dialog-info.svg "$@ ^_^" &
     }
 fi #interactive mode 
-
-
 
 
 

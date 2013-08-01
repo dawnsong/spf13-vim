@@ -1,0 +1,23 @@
+%------------ FreeSurfer -----------------------------%
+fshome = getenv('FREESURFER_HOME');
+fsmatlab = sprintf('%s/matlab',fshome);
+if (exist(fsmatlab) == 7)
+    path(path,fsmatlab);
+end
+clear fshome fsmatlab;
+%-----------------------------------------------------%
+
+%------------ FreeSurfer FAST ------------------------%
+fsfasthome = getenv('FSFAST_HOME');
+fsfasttoolbox = sprintf('%s/toolbox',fsfasthome);
+if (exist(fsfasttoolbox) == 7)
+    path(path,fsfasttoolbox);
+end
+clear fsfasthome fsfasttoolbox;
+%-----------------------------------------------------%
+
+home = getenv('HOME');
+addpath(genpath('%s/fmri/afni.matlab/',home));
+addpath(genpath('%s/fmri/bct.20121204/',home));
+addpath(genpath('%s/fmri/nbs1.2/',home));
+addpath(genpath('%s/fmri/gretna/',home));
