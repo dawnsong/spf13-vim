@@ -103,9 +103,8 @@ function cleanpath(){
   END{for(i=1;i<n;i++)printf(":%s", sp[i]);}' 
 }
 
-importrc $HOME/fmri/fmri.bashrc
 
 #run at the very last, dawnsong
 export PATH=$(cleanpath ".:$HOME/bin:$PATH")
-export LD_LIBRARY_PATH=$( cleanpath ".:$LD_LIBRARY_PATH" )
+export LD_LIBRARY_PATH=$( cleanpath ".:$HOME/lib:$LD_LIBRARY_PATH" )
 

@@ -11,7 +11,7 @@ fi
 
 export EDITOR=vi
 
-export PATH=$(tr -s '\n' ':' <<eot
+export PATH=$(tr -s ' \n' ':' <<eot
 $HOME/bin 
 $HOME/dawn/bin 
 $HOME/dawn/bin/fred.imagemagick.scripts
@@ -21,7 +21,7 @@ $HOME/dawn/bin/fred.imagemagick.scripts
 /usr/sbin 
 eot
 ):$PATH
-export LD_LIBRARY_PATH=$(tr -s '\n' ':' <<eot
+export LD_LIBRARY_PATH=$(tr -s ' \n' ':' <<eot
 $HOME/lib
 /usr/lib 
 /usr/lib64/
@@ -33,7 +33,8 @@ eot
 #dawnsong Env config
 TIME_LOGIN=`date`
 
-importrc ~/.bash_quest
+importrc $HOME/.bash_quest
+importrc $HOME/fmri/fmri.bashrc
 
 #importrc "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 

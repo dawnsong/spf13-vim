@@ -26,7 +26,6 @@ export LDFLAGS="-L$dirfmri/niftitools/lib $LDFLAGS"
 
 
 #MINC
-export LIBMINC_DIR=$HOME/bak/bic.mni.minc/libminc/build
 importrc $dirfmri/minc/minc-toolkit-config.sh
 
 
