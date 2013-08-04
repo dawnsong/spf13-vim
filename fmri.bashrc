@@ -38,6 +38,7 @@ export ARTHOME=$dirfmri/ART/art
 
 #afni, freesurfer.qa, ants.bin
 export PATH=$(tr -s ' \n' ':' <<eot
+$dirfmri/bin
 $dirfmri/afni.bin
 $FSLDIR/bin
 $dirfmri/freesurfer.qa
