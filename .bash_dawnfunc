@@ -89,6 +89,12 @@ fi #interactive mode
 
 
 #Clean PATH, LD_LIBRARY_PATH
+function rmpath(){
+   echo PATH=${PATH}|sed -e 's;:;\n;g' -e 's;'"$2"';;g' -e '/^$/d' -e 's;\n;:;g'  
+}
+function rmldpath(){
+   echo LD_LIBRARY_PATH=${LD_LIBRARY_PATH}|sed -e 's;:;\n;g' -e 's;'"$2"';;g' -e '/^$/d' -e 's;\n;:;g'  
+}
 function listpath(){
   echo $@ |sed 's/:/\n/g' |sed '/^[ \t]*$/d' | sed 's\/$\\g' 
 }
@@ -106,5 +112,6 @@ function cleanpath(){
 
 #run at the very last, dawnsong
 export PATH=$(cleanpath ".:$HOME/bin:$PATH")
-export LD_LIBRARY_PATH=$( cleanpath ".:$HOME/lib:$LD_LIBRARY_PATH" )
+#export LD_LIBRARY_PATH=$( cleanpath ".:$HOME/lib:$LD_LIBRARY_PATH" )
+export LD_LIBRARY_PATH=$( cleanpath ".:$LD_LIBRARY_PATH" )
 

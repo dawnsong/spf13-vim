@@ -58,6 +58,7 @@ eot
 ):$PATH
 #for fMRI common lib
 export LD_LIBRARY_PATH=$(tr -s ' \n' ':' <<eot
+$dirfmri/lib
 $dirfmri/nifticlib/lib
 $dirfmri/niftitools/lib
 eot

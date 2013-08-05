@@ -73,11 +73,11 @@ $HOME/lib64/
 eot
 ):$LD_LIBRARY_PATH
 
-export PATH=$(tr -s ' \n' ' ' <<eot
+export PATH=$(tr -s ' \n' ':' <<eot
 $HOME/bin 
+$HOME/netpbm/bin
 $HOME/bin/ants.bin 
 $HOME/.linuxbrew/bin 
-$HOME/netpbm/bin 
 $HOME/vtk/bin
 $HOME/bak/julia
 /usr/sbin 
