@@ -86,8 +86,8 @@ if [[ $- == *i* ]]; then
     }
 
     function remindSaveEtcScripts(){
-        cd $HOME/.spf13-vim-3 ; git st ; git ci -a && git push
-        cd $HOME/dawn/dawnbin ; git st ; git ci -a && git push
+        cd $HOME/.spf13-vim-3 ; git st ; git ci -a -m 'reminded save' && git push
+        cd $HOME/dawn/dawnbin ; git st ; git ci -a -m 'reminded save' && git push
     }
 fi #interactive mode 
 
