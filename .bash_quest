@@ -45,7 +45,6 @@ export LDFLAGS=$(tr '\n' ' ' <<eot
 -L$HOME/vtk5/lib/vtk-5.10
 -L$HOME/.linuxbrew/lib
 -L$HOME/.linuxbrew/opt/curl/lib
--L$HOME/.linuxbrew/opt/libpng/lib
 -L$HOME/.linuxbrew/opt/zlib/lib
 $LDFLAGS
 eot
@@ -56,7 +55,6 @@ export CPPFLAGS=$(tr '\n' ' ' <<eot
 -I$HOME/vtk5/include/vtk-5.10 
 -I$HOME/.linuxbrew/include 
 -I$HOME/.linuxbrew/opt/curl/include 
--I$HOME/.linuxbrew/opt/libpng/include 
 -I$HOME/.linuxbrew/opt/zlib/include 
 $CPPFLAGS
 eot
@@ -67,7 +65,6 @@ $HOME/netpbm/lib/
 $HOME/vtk5/lib/vtk-5.10
 $HOME/.linuxbrew/lib
 $HOME/.linuxbrew/opt/curl/lib 
-$HOME/.linuxbrew/opt/libpng/lib 
 $HOME/.linuxbrew/opt/zlib/lib
 $HOME/lib64/
 eot
