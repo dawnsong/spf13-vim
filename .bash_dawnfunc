@@ -84,6 +84,11 @@ if [[ $- == *i* ]]; then
       shift
       wait $pid && notify-send -i $icond/gtk-dialog-info.svg "$@ ^_^" &
     }
+
+    function remindSaveEtcScripts(){
+        cd $HOME/.spf13-vim-3 ; git st ; git ci -a && git push
+        cd $HOME/dawn/dawnbin ; git st ; git ci -a && git push
+    }
 fi #interactive mode 
 
 
