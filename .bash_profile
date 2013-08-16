@@ -34,7 +34,7 @@ eot
 TIME_LOGIN=`date`
 
 
-if [[ `uname -n` == "q*" ]]; then importrc $HOME/.bash_quest; fi
+if [[ `uname -n` == q* ]]; then importrc $HOME/.bash_quest; fi
 
 importrc $HOME/.bash_`uname -n`
 importrc $HOME/fmri/fmri.bashrc
