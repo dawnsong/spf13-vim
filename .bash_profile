@@ -33,7 +33,8 @@ eot
 #dawnsong Env config
 TIME_LOGIN=`date`
 
-importrc $HOME/.bash_quest
+
+importrc $HOME/.bash_`uname -n`
 importrc $HOME/fmri/fmri.bashrc
 
 #importrc "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

@@ -1,24 +1,24 @@
 #!/bin/bash
 
-while read m; do module load $m ; done <<eom
-utilities 
-gcc 
-cmake/2.8.11.1 
-autoconf 
-fftw  
-blas-lapack
-boost 
-gnuplot 
-grace 
-dot
-hdf5 
-netCDF  
-pcre
-perl
-gsl
-octave 
-matlab 
-eom
+#while read m; do module load $m ; done <<eom
+#utilities 
+#gcc 
+#cmake/2.8.11.1 
+#autoconf 
+#fftw  
+#blas-lapack
+#boost 
+#gnuplot 
+#grace 
+#dot
+#hdf5 
+#netCDF  
+#pcre
+#perl
+#gsl
+#octave 
+#matlab 
+#eom
 
 
 #for BLAS LAPACK
