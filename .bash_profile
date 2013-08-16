@@ -34,6 +34,7 @@ eot
 TIME_LOGIN=`date`
 
 
+importrc $HOME/.bash_quest
 importrc $HOME/.bash_`uname -n`
 importrc $HOME/fmri/fmri.bashrc
 
