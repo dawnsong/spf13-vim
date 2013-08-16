@@ -42,6 +42,7 @@ importrc "$HOME/.pythonbrew/etc/bashrc"
 export LDFLAGS=$(tr '\n' ' ' <<eot 
 -L$HOME/lib
 -L$HOME/.pythonbrew/pythons/Python-2.6.8/lib
+-L$HOME/fmri/minc/lib/InsightToolkit
 -L$HOME/vtk5/lib/vtk-5.10
 -L$HOME/.linuxbrew/lib
 -L$HOME/.linuxbrew/opt/curl/lib
@@ -52,6 +53,7 @@ eot
 export CPPFLAGS=$(tr '\n' ' ' <<eot
 -I$HOME/include 
 -I$HOME/.pythonbrew/pythons/Python-2.6.8/include/python2.6 
+-I$HOME/fmri/minc/include/InsightToolkit
 -I$HOME/vtk5/include/vtk-5.10 
 -I$HOME/.linuxbrew/include 
 -I$HOME/.linuxbrew/opt/curl/include 
@@ -114,6 +116,8 @@ export PAGER='most'
 
 #default projectID
 export AllocID=p20394
+#force TMPDIR
+test -z $TMPDIR || mkdir -p $TMPDIR
 
 #for java
 module load java

@@ -1,65 +1,66 @@
 #!/bin/bash
 
-dirfmri=$HOME/fmri
+export FMRIDIR=$HOME/fmri
 
 #ANTs
-export ANTSPATH=`readlink -f $dirfmri/ants.bin/bin`/
+export ANTSPATH=`readlink -f $FMRIDIR/ants.bin/bin`/
 #for afni
-export DYLD_FALLBACK_LIBRARY_PATH=$dirfmri/afni.bin 
+export DYLD_FALLBACK_LIBRARY_PATH=$FMRIDIR/afni.bin 
 
 #freesurfer
-export FREESURFER_HOME=$dirfmri/freesurfer
-export FSL_DIR=$dirfmri/fsl
-importrc $dirfmri/freesurfer/SetUpFreeSurfer.sh
+export FREESURFER_HOME=$FMRIDIR/freesurfer
+export FSL_DIR=$FMRIDIR/fsl
+importrc $FMRIDIR/freesurfer/SetUpFreeSurfer.sh
 
 #FSL 5.0.4, must after freesurfer
-export FSLDIR=$dirfmri/fsl
+export FSLDIR=$FMRIDIR/fsl
 importrc $FSLDIR/etc/fslconf/fsl.sh
+export FSLOUTPUTTYPE=NIFTI
 
 
 #dicom
-export MANPATH=$dirfmri/dcmtk/share/man:$MANPATH
+export MANPATH=$FMRIDIR/dcmtk/share/man:$MANPATH
 
 
-export CPPFLAGS=" -I$dirfmri/niftitools/include $CPPFLAGS"
-export LDFLAGS="-L$dirfmri/niftitools/lib $LDFLAGS"
+export CPPFLAGS=" -I$FMRIDIR/niftitools/include $CPPFLAGS"
+export LDFLAGS="-L$FMRIDIR/niftitools/lib $LDFLAGS"
 
 
 #MINC
-importrc $dirfmri/minc/minc-toolkit-config.sh
+importrc $FMRIDIR/minc/minc-toolkit-config.sh
 
 
 #CAMIRO DTI
 export CAMINO_HEAP_SIZE=8000
-export MANPATH=$dirfmri/camino/man:$MANPATH
+export MANPATH=$FMRIDIR/camino/man:$MANPATH
 
 #ART
-export ARTHOME=$dirfmri/ART/art
+export ARTHOME=$FMRIDIR/ART/art
 
 #afni, freesurfer.qa, ants.bin
 export PATH=$(tr -s ' \n' ':' <<eot
-$dirfmri/bin
-$dirfmri/afni.bin
+$FMRIDIR/bin
+$FMRIDIR/afni.bin
 $FSLDIR/bin
-$dirfmri/freesurfer.qa
+$FMRIDIR/freesurfer.qa
 $ANTSPATH
-$dirfmri/camino/bin
-$dirfmri/ART/art/bin
-$dirfmri/robex
-$dirfmri/mricron
-$dirfmri/gary.fmri.bin
-$dirfmri/dcmtk/bin
-$dirfmri/xnat/xnat_tools/
-$dirfmri/niftitools/bin/ 
-$dirfmri/niftitools/python  
-$dirfmri/niftitools/misc/wuminn-connectome/
-$dirfmri/fbirn/bin
+$FMRIDIR/camino/bin
+$FMRIDIR/ART/art/bin
+$FMRIDIR/robex
+$FMRIDIR/mricron
+$FMRIDIR/gary.fmri.bin
+$FMRIDIR/dcmtk/bin
+$FMRIDIR/xnat/xnat_tools/
+$FMRIDIR/niftitools/bin/ 
+$FMRIDIR/niftitools/python  
+$FMRIDIR/niftitools/misc/wuminn-connectome/
+$FMRIDIR/fbirn/bin
 eot
 ):$PATH
 #for fMRI common lib
 export LD_LIBRARY_PATH=$(tr -s ' \n' ':' <<eot
-$dirfmri/lib
-$dirfmri/nifticlib/lib
-$dirfmri/niftitools/lib
+$FMRIDIR/lib
+$FMRIDIR/nifticlib/lib
+$FMRIDIR/niftitools/lib
 eot
 ):$LD_LIBRARY_PATH

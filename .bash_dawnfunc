@@ -61,6 +61,7 @@ if [[ $- == *i* ]]; then
     alias ll='ls -lhvrt'
     alias lld='ls -lUd */'
     alias gnuplot='rlwrap -a -c gnuplot'
+    alias d='display'
     md() { mkdir -p "$1" && cd "$1"; } 
     lsgz(){ gzip -l $@; }
 
