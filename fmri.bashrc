@@ -37,6 +37,9 @@ export MANPATH=$FMRIDIR/camino/man:$MANPATH
 #ART
 export ARTHOME=$FMRIDIR/ART/art
 
+#
+alias snap='itksnap'
+
 #afni, freesurfer.qa, ants.bin
 export PATH=$(tr -s ' \n' ':' <<eot
 $FMRIDIR/bin
