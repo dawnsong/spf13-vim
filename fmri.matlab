@@ -17,7 +17,9 @@ clear fsfasthome fsfasttoolbox;
 %-----------------------------------------------------%
 
 home = getenv('HOME');
-addpath(genpath('%s/fmri/afni.matlab/',home));
-addpath(genpath('%s/fmri/bct.20121204/',home));
-addpath(genpath('%s/fmri/nbs1.2/',home));
-addpath(genpath('%s/fmri/gretna/',home));
+addpath(genpath(sprintf('%s/fmri/afni.matlab/',home)));
+addpath(genpath(sprintf('%s/fmri/bct.20121204/',home)));
+addpath(genpath(sprintf('%s/fmri/nbs1.2/',home)));
+addpath(genpath(sprintf('%s/fmri/gretna/',home)));
+addpath(genpath(sprintf('%s/fmri/spm8/',home)));
+clear home;
