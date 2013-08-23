@@ -65,6 +65,9 @@ if [[ $- == *i* ]]; then
     md() { mkdir -p "$1" && cd "$1"; } 
     lsgz(){ gzip -l $@; }
 
+    #for condor
+    alias cst='condor_status'
+
     #ln to make symbolic links
     lns() { 
       bd1=`readlink -f "$1"`
