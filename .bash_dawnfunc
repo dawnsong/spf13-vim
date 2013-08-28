@@ -67,6 +67,7 @@ if [[ $- == *i* ]]; then
 
     #for condor
     alias cst='condor_status'
+    alias cq='condor_q'
 
     #ln to make symbolic links
     lns() { 
