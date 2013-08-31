@@ -30,3 +30,5 @@ let g:pymode_lint_write=0
 "disable auto folding
 set nofoldenable
 
+"absolute line num"
+set number
