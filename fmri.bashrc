@@ -48,6 +48,7 @@ $FSLDIR/bin
 $FMRIDIR/freesurfer.qa
 $ANTSPATH
 $FMRIDIR/camino/bin
+$FMRIDIR/diffusion.toolkit/dtk
 $FMRIDIR/ART/art/bin
 $FMRIDIR/robex
 $FMRIDIR/mricron
