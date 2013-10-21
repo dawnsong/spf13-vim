@@ -38,4 +38,5 @@ for i = 1:length(entries)
          rmpath(entry);
      end;
 end;
+clear all pattern entry entries;
 
