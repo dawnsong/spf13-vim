@@ -70,6 +70,8 @@ if [[ $- == *i* ]]; then
     alias cq='condor_q'
     alias crun='condor_run'
 
+    alias ccat='pycolor'
+
     #ln to make symbolic links
     lns() { 
       bd1=`readlink -f "$1"`

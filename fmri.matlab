@@ -26,6 +26,8 @@ addpath(genpath(sprintf('%s/fmri/surfstat/',home)));
 addpath(genpath(sprintf('%s/fmri/panda/PANDA/',home)));
 addpath(genpath(sprintf('%s/fmri/matlab/gift/GroupICATv3.0a/icatb',home)));
 addpath(genpath(sprintf('%s/fmri/matlab/rest/REST/',home)));
+addpath(genpath(sprintf('%s/fmri/matlab/mlsp/',home)));
+addpath((sprintf('%s/fmri/matlab/m2html/',home)));
 clear home;
 
 %function filter_path(pattern)
