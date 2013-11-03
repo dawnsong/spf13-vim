@@ -114,7 +114,7 @@ export PAGER='most'
 #source /home/xst833/.rvm/scripts/rvm
 
 #default projectID
-export AllocID=p20394
+export AllocID=b1015
 #force TMPDIR
 test -z $TMPDIR || mkdir -p $TMPDIR
 
