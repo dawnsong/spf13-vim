@@ -30,17 +30,19 @@ let g:pymode_lint_write=0
 "disable auto folding
 set nofoldenable
 
-"absolute line num"
-"set number
+"""absolute line num"
 function! NumberToggle()
   if(&relativenumber == 1)
     set number
+set nonumber
   else
     set relativenumber
+set nonumber
   endif
 endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
-au FocusLost *   :set number
-au FocusGained * :set relativenumber
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
+""""""au FocusLost *   :set number
+""""""au FocusGained * :set relativenumber
+""""""autocmd InsertEnter * :set number
+""""""autocmd InsertLeave * :set relativenumber
+""
