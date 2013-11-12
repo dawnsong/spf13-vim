@@ -29,6 +29,7 @@ addpath(genpath(sprintf('%s/fmri/matlab/rest/REST/',home)));
 addpath(genpath(sprintf('%s/fmri/matlab/mlsp/',home)));
 addpath((sprintf('%s/fmri/matlab/m2html/',home)));
 addpath((sprintf('%s/fmri/matlab/BrainNetViewer/',home)));
+addpath((sprintf('%s/fmri/matlab/eig3/',home)));
 clear home;
 
 %function filter_path(pattern)

@@ -37,8 +37,9 @@ export MANPATH=$FMRIDIR/camino/man:$MANPATH
 #ART
 export ARTHOME=$FMRIDIR/ART/art
 
-#
-alias snap='itksnap'
+#itksnap
+alias snap='itksnap.sh'
+source $FMRIDIR/itksnap/c3d/share/bashcomp.sh
 
 #afni, freesurfer.qa, ants.bin
 export PATH=$(tr -s ' \n' ':' <<eot
@@ -47,8 +48,11 @@ $FMRIDIR/afni.bin
 $FSLDIR/bin
 $FMRIDIR/freesurfer.qa
 $ANTSPATH
+$FMRIDIR/itksnap/itksnap64/bin/
+$FMRIDIR/itksnap/c3d/bin/
 $FMRIDIR/camino/bin
 $FMRIDIR/diffusion.toolkit/dtk
+$FMRIDIR/elastix/bin
 $FMRIDIR/ART/art/bin
 $FMRIDIR/robex
 $FMRIDIR/mricron
@@ -66,5 +70,6 @@ export LD_LIBRARY_PATH=$(tr -s ' \n' ':' <<eot
 $FMRIDIR/lib
 $FMRIDIR/nifticlib/lib
 $FMRIDIR/niftitools/lib
+$FMRIDIR/elastix/lib
 eot
 ):$LD_LIBRARY_PATH
