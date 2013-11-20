@@ -13,7 +13,7 @@ export FSL_DIR=$FMRIDIR/fsl
 importrc $FMRIDIR/freesurfer/SetUpFreeSurfer.sh
 export FSF_OUTPUT_FORMAT=nii
 
-#FSL 5.0.4, must after freesurfer
+#FSL , must after freesurfer
 export FSLDIR=$FMRIDIR/fsl
 importrc $FSLDIR/etc/fslconf/fsl.sh
 export FSLOUTPUTTYPE=NIFTI
