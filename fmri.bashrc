@@ -11,6 +11,7 @@ export DYLD_FALLBACK_LIBRARY_PATH=$FMRIDIR/afni.bin
 export FREESURFER_HOME=$FMRIDIR/freesurfer
 export FSL_DIR=$FMRIDIR/fsl
 importrc $FMRIDIR/freesurfer/SetUpFreeSurfer.sh
+export FSF_OUTPUT_FORMAT=nii
 
 #FSL 5.0.4, must after freesurfer
 export FSLDIR=$FMRIDIR/fsl
