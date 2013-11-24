@@ -69,6 +69,7 @@ if [[ $- == *i* ]]; then
     #for condor
     alias cst='condor_status'
     alias cq='condor_q'
+    alias crm='condor_rm'
     alias crun='condor_run'
 
     alias ccat='pycolor'
