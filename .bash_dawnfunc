@@ -6,7 +6,7 @@ export PAGER='most'
 
 #perl
 #source /home/dawnsong/perl5/perlbrew/etc/bashrc
-eval $(perl -I$HOME/lib/perl5 -Mlocal::lib=$HOME)
+test -d $HOME/lib/perl5 && eval $(perl -I$HOME/lib/perl5 -Mlocal::lib=$HOME)
 
 ##interactive mode
 if [[ $- == *i* ]]; then
