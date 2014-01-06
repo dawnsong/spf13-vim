@@ -4,6 +4,8 @@
 #colored man page
 export PAGER='most'
 
+IsFileExist(){ test ! -z "$1" && test -f "$1" ;  }
+
 #perl
 #source /home/dawnsong/perl5/perlbrew/etc/bashrc
 test -d $HOME/lib/perl5 && eval $(perl -I$HOME/lib/perl5 -Mlocal::lib=$HOME)
