@@ -14,6 +14,10 @@ if [[ $- == *i* ]]; then
 #    export ASH_CFG="$HOME/.ash/conf/ash.conf"
 #    export PATH="${PATH}:$HOME/.ash/bin"
 #    source $HOME/.ash/lib/bash
+    shopt -s histappend
+    HISTCONTROL=ignoreboth #blank space and dup
+    HISTIGNORE='ls:bg:fg:history'
+    shopt -s cmdhist
 
     #git 
     importrc $HOME/.git-completion.bashrc
