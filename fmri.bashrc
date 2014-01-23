@@ -59,6 +59,7 @@ $FMRIDIR/robex
 $FMRIDIR/mricron
 $FMRIDIR/gary.fmri.bin
 $FMRIDIR/dcmtk/bin
+$FMRIDIR/MRIConvert/bin
 $FMRIDIR/xnat/xnat_tools/
 $FMRIDIR/niftitools/bin/ 
 $FMRIDIR/niftitools/python  
