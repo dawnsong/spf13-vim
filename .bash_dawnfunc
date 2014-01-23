@@ -4,9 +4,11 @@
 #colored man page
 export PAGER='most'
 
+IsFileExist(){ test ! -z "$1" && test -f "$1" ;  }
+
 #perl
 #source /home/dawnsong/perl5/perlbrew/etc/bashrc
-eval $(perl -I$HOME/lib/perl5 -Mlocal::lib=$HOME)
+test -d $HOME/lib/perl5 && eval $(perl -I$HOME/lib/perl5 -Mlocal::lib=$HOME)
 
 ##interactive mode
 if [[ $- == *i* ]]; then
@@ -73,6 +75,7 @@ if [[ $- == *i* ]]; then
     #for condor
     alias cst='condor_status'
     alias cq='condor_q'
+    alias crm='condor_rm'
     alias crun='condor_run'
 
     alias ccat='pycolor'

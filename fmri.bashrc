@@ -4,6 +4,7 @@ export FMRIDIR=$HOME/fmri
 
 #ANTs
 export ANTSPATH=`readlink -f $FMRIDIR/ants.bin/bin`/
+export ANTSCRIPTD=`readlink -f $FMRIDIR/ants.src/Scripts`/
 #for afni
 export DYLD_FALLBACK_LIBRARY_PATH=$FMRIDIR/afni.bin 
 
@@ -49,6 +50,7 @@ $FMRIDIR/afni.bin
 $FSLDIR/bin
 $FMRIDIR/freesurfer.qa
 $ANTSPATH
+$ANTSCRIPTD
 $FMRIDIR/itksnap/itksnap64/bin/
 $FMRIDIR/itksnap/c3d/bin/
 $FMRIDIR/camino/bin
