@@ -22,6 +22,8 @@ export FSLOUTPUTTYPE=NIFTI
 
 #dicom
 export MANPATH=$FMRIDIR/dcmtk/share/man:$MANPATH
+export GDCM_RESOURCES_PATH=$FMRIDIR/gdcm/share/gdcm-2.0/XML/
+export DCMDICTPATH=$FMRIDIR/dcmtk/share/dcmtk/dicom.dic:$FMRIDIR/dcmtk/share/dcmtk/private.dic:$FMRIDIR/dcmtk/share/dcmtk/diconde.dic
 
 
 export CPPFLAGS=" -I$FMRIDIR/niftitools/include $CPPFLAGS"
@@ -61,6 +63,7 @@ $FMRIDIR/robex
 $FMRIDIR/mricron
 $FMRIDIR/gary.fmri.bin
 $FMRIDIR/dcmtk/bin
+$FMRIDIR/gdcm/bin
 $FMRIDIR/MRIConvert/bin
 $FMRIDIR/xnat/xnat_tools/
 $FMRIDIR/niftitools/bin/ 
@@ -75,5 +78,6 @@ $FMRIDIR/lib
 $FMRIDIR/nifticlib/lib
 $FMRIDIR/niftitools/lib
 $FMRIDIR/elastix/lib
+$FMRIDIR/gdcm/lib
 eot
 ):$LD_LIBRARY_PATH
