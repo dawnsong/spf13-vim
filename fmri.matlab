@@ -16,7 +16,14 @@ end
 clear fsfasthome fsfasttoolbox;
 %-----------------------------------------------------%
 
-home = getenv('HOME');
+user=getenv('USER');
+if strcmp(user, 'xst833'),
+    home = getenv('HOME');
+else
+    user,
+    home = '/home/xst833/';
+end
+
 addpath(genpath(sprintf('%s/fmri/afni.matlab/',home)));
 addpath(genpath(sprintf('%s/fmri/bct.20121204/',home)));
 addpath(genpath(sprintf('%s/fmri/nbs1.2/',home)));
@@ -30,6 +37,7 @@ addpath(genpath(sprintf('%s/fmri/matlab/mlsp/',home)));
 addpath((sprintf('%s/fmri/matlab/m2html/',home)));
 addpath((sprintf('%s/fmri/matlab/BrainNetViewer/',home)));
 addpath((sprintf('%s/fmri/matlab/eig3/',home)));
+addpath((sprintf('%s/fmri/matlab/export_fig/',home)));
 clear home;
 
 %function filter_path(pattern)
