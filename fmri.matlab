@@ -38,6 +38,7 @@ addpath((sprintf('%s/fmri/matlab/m2html/',home)));
 addpath((sprintf('%s/fmri/matlab/BrainNetViewer/',home)));
 addpath((sprintf('%s/fmri/matlab/eig3/',home)));
 addpath((sprintf('%s/fmri/matlab/export_fig/',home)));
+addpath(genpath(sprintf('%s/fmri/matlab/ite/code', home)));
 
 addpath((sprintf('%s/dawn/bin/',home)));
 clear home;

@@ -20,6 +20,7 @@ if [[ $- == *i* ]]; then
     HISTCONTROL=ignoreboth #blank space and dup
     HISTIGNORE='ls:bg:fg:history'
     shopt -s cmdhist
+    PROMPT_COMMAND='history -a'
 
     #git 
     importrc $HOME/.git-completion.bashrc
