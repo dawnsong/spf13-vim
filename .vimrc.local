@@ -47,4 +47,4 @@ nnoremap <C-n> :call NumberToggle()<cr>
 """"""autocmd InsertLeave * :set relativenumber
 ""
 
-colorscheme 256-jungle  "enzyme
+colorscheme kolor "enzyme " "256-jungle  
