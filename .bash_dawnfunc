@@ -16,6 +16,11 @@ if [[ $- == *i* ]]; then
 #    export ASH_CFG="$HOME/.ash/conf/ash.conf"
 #    export PATH="${PATH}:$HOME/.ash/bin"
 #    source $HOME/.ash/lib/bash
+    shopt -s histappend
+    HISTCONTROL=ignoreboth #blank space and dup
+    HISTIGNORE='ls:bg:fg:history'
+    shopt -s cmdhist
+    PROMPT_COMMAND='history -a'
 
     #git 
     importrc $HOME/.git-completion.bashrc
@@ -127,6 +132,8 @@ function cleanpath(){
   END{for(i=1;i<n;i++)printf(":%s", sp[i]);}' 
 }
 
+#for Dev Env
+test -z $DAWNBIND || export PATH=$DAWNBIND:$PATH
 
 #run at the very last, dawnsong
 export PATH=$(cleanpath ".:$HOME/bin:$PATH")

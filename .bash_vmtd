@@ -123,6 +123,6 @@ test -z $TMPDIR || mkdir -p $TMPDIR
 module load java
 export JAVA_HOME="`dirname $(which java)`/.."
 
-#for phantomjs
-export PhantomExamplesDir=$HOME/bak/js/phantomjs-1.9.1-linux-x86_64/examples
+####for phantomjs
+###export PhantomExamplesDir=$HOME/bak/js/phantomjs-1.9.1-linux-x86_64/examples
 
