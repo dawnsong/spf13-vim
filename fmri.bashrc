@@ -5,8 +5,10 @@ export FMRIDIR=$HOME/fmri
 #ANTs
 export ANTSPATH=`readlink -f $FMRIDIR/ants.bin/bin`/
 export ANTSCRIPTD=`readlink -f $FMRIDIR/ants.src/Scripts`/
+
 #for afni
 export DYLD_FALLBACK_LIBRARY_PATH=$FMRIDIR/afni.bin 
+export AFNI_DONT_LOGFILE=YES
 
 #freesurfer
 export FREESURFER_HOME=$FMRIDIR/freesurfer
