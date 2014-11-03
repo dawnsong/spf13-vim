@@ -15,6 +15,7 @@ if [ -f "$ahdir/all_progs.COMP.bash" ]; then
 fi
 
 #freesurfer
+export FS_FREESURFERENV_NO_OUTPUT='YES'
 export FREESURFER_HOME=$FMRIDIR/freesurfer
 export FSL_DIR=$FMRIDIR/fsl
 importrc $FMRIDIR/freesurfer/SetUpFreeSurfer.sh
