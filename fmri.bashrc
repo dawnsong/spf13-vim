@@ -9,6 +9,10 @@ export ANTSCRIPTD=`readlink -f $FMRIDIR/ants.src/Scripts`/
 #for afni
 export DYLD_FALLBACK_LIBRARY_PATH=$FMRIDIR/afni.bin 
 export AFNI_DONT_LOGFILE=YES
+ahdir=`apsearch -afni_help_dir`
+if [ -f "$ahdir/all_progs.COMP.bash" ]; then
+   . $ahdir/all_progs.COMP.bash
+fi
 
 #freesurfer
 export FREESURFER_HOME=$FMRIDIR/freesurfer
