@@ -9,10 +9,6 @@ export ANTSCRIPTD=`readlink -f $FMRIDIR/ants.src/Scripts`/
 #for afni
 export DYLD_FALLBACK_LIBRARY_PATH=$FMRIDIR/afni.bin 
 export AFNI_DONT_LOGFILE=YES
-ahdir=`apsearch -afni_help_dir`
-if [ -f "$ahdir/all_progs.COMP.bash" ]; then
-   . $ahdir/all_progs.COMP.bash
-fi
 
 #freesurfer
 export FS_FREESURFERENV_NO_OUTPUT='YES'
@@ -50,7 +46,6 @@ export ARTHOME=$FMRIDIR/ART/art
 
 #itksnap
 alias snap='itksnap.sh'
-source $FMRIDIR/itksnap/c3d/share/bashcomp.sh
 
 #afni, freesurfer.qa, ants.bin
 export PATH=$(tr -s ' \n' ':' <<eot
@@ -90,3 +85,17 @@ $FMRIDIR/elastix/lib
 $FMRIDIR/gdcm/lib
 eot
 ):$LD_LIBRARY_PATH
+
+
+
+
+##interactive mode
+if [[ $- == *i* ]]; then
+    #ITKSnap comp
+    source $FMRIDIR/itksnap/c3d/share/bashcomp.sh
+    #add afni auto complete
+    ahdir=`apsearch -afni_help_dir`
+    if [ -f "$ahdir/all_progs.COMP.bash" ]; then
+       . $ahdir/all_progs.COMP.bash
+    fi
+fi
