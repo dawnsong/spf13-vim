@@ -74,6 +74,7 @@ $FMRIDIR/niftitools/bin/
 $FMRIDIR/niftitools/python  
 $FMRIDIR/niftitools/misc/wuminn-connectome/
 $FMRIDIR/fbirn/bin
+$FMRIDIR/circos/circos/bin
 eot
 ):$PATH
 #for fMRI common lib

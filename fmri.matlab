@@ -16,11 +16,11 @@ end
 clear fsfasthome fsfasttoolbox;
 %-----------------------------------------------------%
 
-user=getenv('USER');
+user=getenv('USER'),
+node=getenv('HOSTNAME'),
 if strcmp(user, 'xst833'),
     home = getenv('HOME');
 else
-    user,
     home = '/home/xst833/';
 end
 
