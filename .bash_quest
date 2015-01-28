@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while read m; do  module load $m ; done <<eom
+rmComment <<eom |while read m; do  module load $m ; done
 utilities 
 gcc 
 cmake/2.8.11.1 
@@ -11,12 +11,14 @@ boost
 gnuplot 
 grace 
 dot
+#python
 hdf5/1.8.10
 netCDF  
 pcre
 perl
 gsl
 matlab 
+R
 eom
 
 
