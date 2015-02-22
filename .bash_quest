@@ -4,7 +4,6 @@
 #rmComment <<eom |while read m; do  module load $m ; done
 while read m; do  module load $m ; done <<eom 
 utilities 
-gcc 
 cmake/2.8.11.1 
 autoconf 
 fftw  
@@ -20,6 +19,7 @@ perl
 gsl
 matlab 
 R
+gcc/4.8.3
 eom
 
 
