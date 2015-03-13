@@ -81,18 +81,6 @@ if [[ $- == *i* ]]; then
 
     alias ccat='pycolor'
 
-    #ln to make symbolic links
-    lns() { 
-      bd1=`readlink -f "$1"`
-      bd2=`readlink -f "$2"`
-      c=$(python -c "import os; print os.path.commonprefix(['$bd1', '$bd2'])")
-      if [ $c == "/" ]; then 
-        ln -s $(readlink -f "$1") "$2"; 
-      else 
-        ln -s "$1" "$2"; 
-      fi
-    }
-
     #notify-send alias, 20120206
     function alert(){
       test $# -ge 1 || { echo "alert pid something to say" 1>&2; exit 1; }
