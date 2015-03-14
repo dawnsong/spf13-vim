@@ -29,6 +29,7 @@ addpath(genpath(sprintf('%s/fmri/bct.20121204/',home)));
 addpath(genpath(sprintf('%s/fmri/nbs1.2/',home)));
 addpath(genpath(sprintf('%s/fmri/gretna/',home)));
 addpath((sprintf('%s/fmri/spm8/',home)));
+addpath((sprintf('%s/fmri/spm8/toolbox/vbm8',home)));
 addpath(genpath(sprintf('%s/fmri/surfstat/',home)));
 addpath(genpath(sprintf('%s/fmri/panda/PANDA/',home)));
 addpath(genpath(sprintf('%s/fmri/matlab/gift/GroupICATv3.0a/icatb',home)));

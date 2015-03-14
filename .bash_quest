@@ -1,8 +1,9 @@
 #!/bin/bash
 
-while read m; do  module load $m ; done <<eom
+#cannot be in sub-shell
+#rmComment <<eom |while read m; do  module load $m ; done
+while read m; do  module load $m ; done <<eom 
 utilities 
-gcc 
 cmake/2.8.11.1 
 autoconf 
 fftw  
@@ -17,6 +18,8 @@ pcre
 perl
 gsl
 matlab 
+R
+gcc/4.8.3
 eom
 
 
@@ -32,14 +35,14 @@ export HDF5_DIR=/software/hdf5/1.8.10/
 #python
 export PYTHONPATH=$HOME/vtk5/lib/vtk-5.10:$PYTHONPATH
 export PYTHONSTARTUP=$HOME/.pythonrc.py
-export PYTHON_LIBRARY=$HOME/.pythonbrew/pythons/Python-2.6.8/lib/libpython2.6.a
-export PYTHON_INCLUDE_PATH=$HOME/.pythonbrew/pythons/Python-2.6.8/include/python2.6/
-importrc "$HOME/.pythonbrew/etc/bashrc"
+#export PYTHON_LIBRARY=$HOME/.pythonbrew/pythons/Python-2.6.8/lib/libpython2.6.a
+#export PYTHON_INCLUDE_PATH=$HOME/.pythonbrew/pythons/Python-2.6.8/include/python2.6/
+#importrc "$HOME/.pythonbrew/etc/bashrc"
 
 #compiliation flags
-export LDFLAGS=$(tr '\n' ' ' <<eot 
+export LDFLAGS=$( rmComment <<eot |tr -s '\n' ' '
 -L$HOME/lib
--L$HOME/.pythonbrew/pythons/Python-2.6.8/lib
+#-L$HOME/.pythonbrew/pythons/Python-2.6.8/lib
 -L$HOME/fmri/minc/lib/InsightToolkit
 -L$HOME/vtk5/lib/vtk-5.10
 -L$HOME/.linuxbrew/lib
@@ -48,9 +51,9 @@ export LDFLAGS=$(tr '\n' ' ' <<eot
 $LDFLAGS
 eot
 )
-export CPPFLAGS=$(tr '\n' ' ' <<eot
+export CPPFLAGS=$(rmComment <<eot |tr -s '\n' ' '
 -I$HOME/include 
--I$HOME/.pythonbrew/pythons/Python-2.6.8/include/python2.6 
+#-I$HOME/.pythonbrew/pythons/Python-2.6.8/include/python2.6 
 -I$HOME/fmri/minc/include/InsightToolkit
 -I$HOME/vtk5/include/vtk-5.10 
 -I$HOME/.linuxbrew/include 
@@ -77,6 +80,7 @@ $HOME/bin/ants.bin
 $HOME/.linuxbrew/bin 
 $HOME/vtk/bin
 $HOME/bak/julia
+$HOME/bak/anaconda/bin
 $HOME/usr/bin
 /usr/sbin
 eot

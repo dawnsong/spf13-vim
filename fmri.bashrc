@@ -40,6 +40,9 @@ importrc $FMRIDIR/minc/minc-toolkit-config.sh
 #CAMIRO DTI
 export CAMINO_HEAP_SIZE=8000
 export MANPATH=$FMRIDIR/camino/man:$MANPATH
+#DTK, Diffusion toolkit
+export DTDIR=$FMRIDIR/dtk/
+export DSI_PATH=$FMRIDIR/dtk/matrices
 
 #ART
 export ARTHOME=$FMRIDIR/ART/art
@@ -58,7 +61,9 @@ $ANTSCRIPTD
 $FMRIDIR/itksnap/itksnap64/bin/
 $FMRIDIR/itksnap/c3d/bin/
 $FMRIDIR/camino/bin
-$FMRIDIR/diffusion.toolkit/dtk
+$FMRIDIR/dtk
+$FMRIDIR/mrtrix3/bin
+$FMRIDIR/mrtrix3/scripts
 $FMRIDIR/elastix/bin
 $FMRIDIR/ART/art/bin
 $FMRIDIR/robex
