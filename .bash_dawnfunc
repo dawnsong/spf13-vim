@@ -121,9 +121,10 @@ function cleanpath(){
 }
 
 #for Dev Env
-test -z $DAWNBIND || { 
-    export PATH=$DAWNBIND:$PATH; 
-    echo DAWNBIND=$DAWNBIND; }
+if [[ -z $DAWNBIND ]]; then  
+    export PATH=$DAWNBIND:$PATH
+    echo DAWNBIND=$DAWNBIND
+fi
 
 #run at the very last, dawnsong
 export PATH=$(cleanpath ".:$HOME/bin:$PATH")
