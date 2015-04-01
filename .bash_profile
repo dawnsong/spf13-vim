@@ -33,7 +33,7 @@ eot
 #dawnsong Env config
 TIME_LOGIN=`date`
 
-
+if [[ ! -z $DAWNBIND ]]; then export PATH=$DAWNBIND:$PATH; fi
 if [[ `uname -n` == q* ]]; then importrc $HOME/.bash_quest; fi
 
 importrc $HOME/.bash_`uname -n`
