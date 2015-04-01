@@ -40,7 +40,7 @@ export PYTHONSTARTUP=$HOME/.pythonrc.py
 #importrc "$HOME/.pythonbrew/etc/bashrc"
 
 #compiliation flags
-export LDFLAGS=$( ${DAWNBIND:-"$HOME/dawn/bin"}/rmComment <<eot |tr -s '\n' ' '
+export LDFLAGS=$(rmComment <<eot |tr -s '\n' ' '
 -L$HOME/lib
 #-L$HOME/.pythonbrew/pythons/Python-2.6.8/lib
 -L$HOME/fmri/minc/lib/InsightToolkit
