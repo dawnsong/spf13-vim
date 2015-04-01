@@ -120,11 +120,6 @@ function cleanpath(){
   END{for(i=1;i<n;i++)printf(":%s", sp[i]);}' 
 }
 
-#for Dev Env
-if [[ -z $DAWNBIND ]]; then  
-    export PATH=$DAWNBIND:$PATH
-    echo DAWNBIND=$DAWNBIND
-fi
 
 #run at the very last, dawnsong
 export PATH=$(cleanpath ".:$HOME/bin:$PATH")
