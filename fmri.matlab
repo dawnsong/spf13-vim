@@ -41,18 +41,22 @@ addpath((sprintf('%s/fmri/matlab/eig3/',home)));
 addpath((sprintf('%s/fmri/matlab/export_fig/',home)));
 addpath(genpath(sprintf('%s/fmri/matlab/ite/code', home)));
 
-addpath((sprintf('%s/dawn/bin/',home)));
+%add my bin path
+dawnbind= getenv('DAWNBIND');
+addpath(genpath(dawnbind));
 clear home;
 
 %function filter_path(pattern)
-pattern='.git';
+pattern={'.git', '.svn'};
 all = path;
 [entries] = regexp(all, '([^:]+):', 'tokens');
 for i = 1:length(entries)
-     entry = char(entries{i});
-     if (~isempty(strfind(entry, pattern)))
-         rmpath(entry);
-     end;
+    entry = char(entries{i});
+    for j=1:length(pattern),
+         if (~isempty(strfind(entry, pattern{j})))
+             rmpath(entry);
+         end;
+    end
 end;
 clear all pattern entry entries;
 
