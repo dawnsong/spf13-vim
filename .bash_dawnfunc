@@ -69,7 +69,7 @@ if [[ $- == *i* ]]; then
     alias lld='ls -lUd */'
     alias gnuplot='rlwrap -a -c gnuplot'
     alias d='display'
-    alias v='viewnior'
+    alias v='viewnior 2>/dev/null'
     md() { mkdir -p "$1" && cd "$1"; } 
     lsgz(){ gzip -l $@; }
 
