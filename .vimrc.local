@@ -1,8 +1,10 @@
 
 filetype plugin indent on
 
+Bundle 'aperezdc/vim-template'
 let g:username = 'Xiaowei.Song'
 let g:email = 'dawnwei.song@gmail.com'
+let g:license= 'Academy Free License (AFL)'
 ""unlet g:templates_plugin_loaded = 0
 
 "Auto formatting, rm blank lines"
@@ -48,3 +50,14 @@ nnoremap <C-n> :call NumberToggle()<cr>
 ""
 
 colorscheme kolor "enzyme " "256-jungle  
+
+"global copy/paste
+set clipboard=unnamedplus
+
+"https://github.com/Valloric/YouCompleteMe/issues/9
+"fix Esc twice problem for ycm and Autoclose
+let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
+
+"Turn YouCompleteMe for program files
+let g:ycm_filetype_whitelist = {'sh':1}
+"let g:ycm_filetype_balcklist = {'text':1}

@@ -122,7 +122,7 @@ function cleanpath(){
 
 
 #run at the very last, dawnsong
-export PATH=$(cleanpath ".:$HOME/bin:$PATH")
+export PATH=$(cleanpath ".:$HOME/bin:$HOME/dawn/bin:$PATH")
 #export LD_LIBRARY_PATH=$( cleanpath ".:$HOME/lib:$LD_LIBRARY_PATH" )
 export LD_LIBRARY_PATH=$( cleanpath ".:$LD_LIBRARY_PATH" )
 

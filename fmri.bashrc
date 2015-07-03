@@ -3,6 +3,8 @@
 export FMRIDIR=$HOME/fmri
 
 #ANTs
+#module load ANTs
+#export ANTSPATH=$(dirname $(readlink -f $(which ANTS)))/
 export ANTSPATH=`readlink -f $FMRIDIR/ants.bin/bin`/
 export ANTSCRIPTD=`readlink -f $FMRIDIR/ants.src/Scripts`/
 
@@ -80,6 +82,9 @@ $FMRIDIR/niftitools/python
 $FMRIDIR/niftitools/misc/wuminn-connectome/
 $FMRIDIR/fbirn/bin
 $FMRIDIR/circos/circos/bin
+$FMRIDIR/nlm/
+$FMRIDIR/EvaluateSegmentation/bin/
+$FMRIDIR/phantomjs/current/bin/
 eot
 ):$PATH
 #for fMRI common lib
