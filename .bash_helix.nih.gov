@@ -3,6 +3,7 @@
 #cannot be in sub-shell
 #rmComment <<eom |while read m; do  module load $m ; done
 while read m; do  module load $m 2>/dev/null 1>&2 ; done <<eom
+ruby
 cmake
 automake
 fftw
@@ -19,6 +20,7 @@ fsl
 freesurfer
 circos
 pigz
+graphviz
 eom
 
 #for FreeSurfer
@@ -101,6 +103,8 @@ eot
 export MANPATH=$MAN_PATH:$MANPATH
 export PAGER='most'
 
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+
 
 #export GEM_HOME=$HOME/gems
 #export RUBYOPT=rubygems
@@ -128,3 +132,6 @@ module rm perl
 module rm perl
 module load perl/5.16.3
 source $HOME/perl5/perlbrew/etc/bashrc
+
+#for tmp dir using /scratch
+export TMPDIR=/scratch/$(whoami)

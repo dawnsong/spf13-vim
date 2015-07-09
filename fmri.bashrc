@@ -85,6 +85,7 @@ $FMRIDIR/circos/circos/bin
 $FMRIDIR/nlm/
 $FMRIDIR/EvaluateSegmentation/bin/
 $FMRIDIR/phantomjs/current/bin/
+$FMRIDIR/cde
 eot
 ):$PATH
 #for fMRI common lib
