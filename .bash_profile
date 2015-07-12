@@ -34,8 +34,11 @@ eot
 TIME_LOGIN=`date`
 
 if [[ ! -z $DAWNBIND ]]; then export PATH=$DAWNBIND:$PATH; fi
-if [[ `uname -n` == q* ]]; then importrc $HOME/.bash_quest; fi
-if [[ `uname -n` == p* ]]; then importrc $HOME/.bash_biowulf.nih.gov; fi
+
+host=$(uname -n)
+if [[ $host =~ q* ]]; then importrc $HOME/.bash_quest; fi
+if [[ $host =~ p* ]]; then importrc $HOME/.bash_biowulf.nih.gov; fi
+if [[ $host =~ cn* ]]; then importrc $HOME/.bash_biowulf2.nih.gov; fi
 
 importrc $HOME/.bash_`uname -n`
 importrc $HOME/fmri/fmri.bashrc

@@ -128,9 +128,7 @@ export R_SHARED_LIB_DIR=$HOME/R/lib64/R/lib/
 export R_INCLUDE_DIR=$HOME/R/lib64/R/include
 
 #for perl
-module rm perl
-module rm perl
-module load perl/5.16.3
+#module load perl
 source $HOME/perl5/perlbrew/etc/bashrc
 
 #for tmp dir using /scratch
