@@ -54,9 +54,9 @@ colorscheme kolor "enzyme " "256-jungle
 "global copy/paste
 set clipboard=unnamedplus
 
-"https://github.com/Valloric/YouCompleteMe/issues/9
-"fix Esc twice problem for ycm and Autoclose
-let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
+"" "https://github.com/Valloric/YouCompleteMe/issues/9
+"" "fix Esc twice problem for ycm and Autoclose
+"" let g:AutoClosePumvisible = {"ENTER":"<C-Y>", "ESC":"<ESC>"}
 
 "Turn YouCompleteMe for program files
 let g:ycm_filetype_whitelist = {'sh':1}

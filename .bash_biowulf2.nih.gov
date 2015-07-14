@@ -112,8 +112,6 @@ export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
 #default projectID
 #export AllocID=p20394 #b1015
-#force TMPDIR
-test -z $TMPDIR || mkdir -p $TMPDIR
 
 #for java
 module load java
@@ -132,4 +130,14 @@ export R_INCLUDE_DIR=$HOME/R/lib64/R/include
 source $HOME/perl5/perlbrew/etc/bashrc
 
 #for tmp dir using /scratch
-export TMPDIR=/scratch/$(whoami)
+host=${HOSTNAME:-$(uname -n)}
+user=$(whoami)
+if [[ $host =~ cn* || $host =~ biowulf2* ]]; then 
+    TMPDIR=/scratch/${user}/${user}.$host
+else
+    TMPDIR=/tmp/$user/${user}.$host
+fi
+test -z $SLURM_JOBID || TMPDIR=/lscratch/$SLURM_JOBID/$(whoami)
+getmpd 1>/dev/null 2>&1 && export TMPDIR #make sure tmp dir is writable
+#force TMPDIR
+test -z $TMPDIR || mkdir -p $TMPDIR
