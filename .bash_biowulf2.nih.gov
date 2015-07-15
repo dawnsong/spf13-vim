@@ -21,6 +21,7 @@ freesurfer
 circos
 pigz
 graphviz
+gcc/4.9.1
 eom
 
 #for FreeSurfer
