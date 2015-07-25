@@ -21,7 +21,6 @@ freesurfer
 circos
 pigz
 graphviz
-gcc/4.9.1
 eom
 
 #for FreeSurfer
@@ -133,12 +132,25 @@ source $HOME/perl5/perlbrew/etc/bashrc
 #for tmp dir using /scratch
 host=${HOSTNAME:-$(uname -n)}
 user=$(whoami)
-if [[ $host =~ cn* || $host =~ biowulf2* ]]; then 
+defaultTmpDir=/tmp/$user/${user}.$host
+if [[ $host =~ biowulf2* ]]; then
     TMPDIR=/scratch/${user}/${user}.$host
+elif [[ $host =~ cn*  ]]; then #/tmp is in memory of Biowulf2
+    TMPDIR=$defaultTmpDir
 else
-    TMPDIR=/tmp/$user/${user}.$host
+    TMPDIR=$defaultTmpDir #default
 fi
 test -z $SLURM_JOBID || TMPDIR=/lscratch/$SLURM_JOBID/$(whoami)
-getmpd 1>/dev/null 2>&1 && export TMPDIR #make sure tmp dir is writable
-#force TMPDIR
+#force TMPDIR #make sure tmp dir is writable 
+mkdir -p $TMPDIR 1>/dev/null 2>&1 && export TMPDIR || export TMPDIR=$defaultTmpDir
 test -z $TMPDIR || mkdir -p $TMPDIR
+
+#for maximum compatibility, should not use most recent GCC
+#load  gcc/4.9.1 as final step to build correct Env
+#module load  gcc/4.9.1
+
+#for SLURM
+alias jobq='squeue -u $(whoami)'
+#for ITK thread count control
+test -z $SLURM_CPUS_ON_NODE || export NCPU=${SLURM_CPUS_ON_NODE}
+test -z $NCPU || export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=${NCPU}
