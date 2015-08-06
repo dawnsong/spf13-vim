@@ -17,7 +17,7 @@ netCDF
 pcre
 perl
 gsl
-matlab 
+matlab/r2013a
 R
 gcc/4.8.3
 eom
@@ -134,3 +134,7 @@ export JAVA_HOME="`dirname $(which java)`/.."
 export R_LIBS=$HOME/R/libs
 export R_SHARED_LIB_DIR=$HOME/R/lib64/R/lib/
 export R_INCLUDE_DIR=$HOME/R/lib64/R/include
+#for RMatlab
+source $R_LIBS/RMatlab/scripts/RMatlab.sh 
+
+export MODULE4MATLAB=r2013a #for matlabp to load
