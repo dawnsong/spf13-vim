@@ -55,6 +55,8 @@ alias snap='itksnap.sh'
 #afni, freesurfer.qa, ants.bin
 export PATH=$(tr -s ' \n' ':' <<eot
 $FMRIDIR/bin
+$FMRIDIR/maven/bin/
+$FMRIDIR/dicomBrowser/bin/
 $FMRIDIR/afni.bin
 $FSLDIR/bin
 $FMRIDIR/freesurfer.qa
@@ -89,12 +91,12 @@ $FMRIDIR/cde
 eot
 ):$PATH
 #for fMRI common lib
-export LD_LIBRARY_PATH=$(tr -s ' \n' ':' <<eot
+export LD_LIBRARY_PATH=$(rmComment <<eot | tr -s ' \n' ':' 
 $FMRIDIR/lib
 $FMRIDIR/nifticlib/lib
 $FMRIDIR/niftitools/lib
 $FMRIDIR/elastix/lib
-$FMRIDIR/gdcm/lib
+#$FMRIDIR/gdcm/lib
 eot
 ):$LD_LIBRARY_PATH
 

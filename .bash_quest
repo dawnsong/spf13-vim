@@ -80,7 +80,6 @@ $HOME/netpbm/bin
 $HOME/bin/ants.bin 
 $HOME/.linuxbrew/bin 
 $HOME/vtk/bin
-$HOME/bak/julia
 $HOME/bak/anaconda/bin
 $HOME/usr/bin
 /usr/sbin
@@ -138,3 +137,6 @@ export R_INCLUDE_DIR=$HOME/R/lib64/R/include
 source $R_LIBS/RMatlab/scripts/RMatlab.sh 
 
 export MODULE4MATLAB=r2013a #for matlabp to load
+
+#restrict ITK to only use allocated cores
+test -z $NCPU || export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=${NCPU}
