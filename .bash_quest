@@ -1,0 +1,142 @@
+#!/bin/bash
+
+#cannot be in sub-shell
+#rmComment <<eom |while read m; do  module load $m ; done
+while read m; do  module load $m ; done <<eom 
+utilities 
+cmake/2.8.11.1 
+autoconf 
+fftw  
+blas-lapack
+boost 
+gnuplot 
+grace 
+dot
+hdf5/1.8.10
+netCDF  
+pcre
+perl
+gsl
+matlab/r2013a
+R
+gcc/4.8.3
+eom
+
+
+#for BLAS LAPACK
+export BLAS=/software/lapack/3.4.0/lib/libblas.a
+export LAPACK=/software/lapack/3.4.0/lib/liblapack.a
+#for hdf5
+export HDF5_DIR=/software/hdf5/1.8.10/
+
+
+
+
+#python
+export PYTHONPATH=$HOME/vtk5/lib/vtk-5.10:$PYTHONPATH
+export PYTHONSTARTUP=$HOME/.pythonrc.py
+#export PYTHON_LIBRARY=$HOME/.pythonbrew/pythons/Python-2.6.8/lib/libpython2.6.a
+#export PYTHON_INCLUDE_PATH=$HOME/.pythonbrew/pythons/Python-2.6.8/include/python2.6/
+#importrc "$HOME/.pythonbrew/etc/bashrc"
+
+#compiliation flags
+export LDFLAGS=$(rmComment <<eot |tr -s '\n' ' '
+-L$HOME/lib
+#-L$HOME/.pythonbrew/pythons/Python-2.6.8/lib
+-L$HOME/fmri/minc/lib/InsightToolkit
+-L$HOME/vtk5/lib/vtk-5.10
+-L$HOME/.linuxbrew/lib
+-L$HOME/.linuxbrew/opt/curl/lib
+-L$HOME/.linuxbrew/opt/zlib/lib
+$LDFLAGS
+eot
+)
+export CPPFLAGS=$(rmComment <<eot |tr -s '\n' ' '
+-I$HOME/include 
+#-I$HOME/.pythonbrew/pythons/Python-2.6.8/include/python2.6 
+-I$HOME/fmri/minc/include/InsightToolkit
+-I$HOME/vtk5/include/vtk-5.10 
+-I$HOME/.linuxbrew/include 
+-I$HOME/.linuxbrew/opt/curl/include 
+-I$HOME/.linuxbrew/opt/zlib/include 
+$CPPFLAGS
+eot
+)
+export LD_LIBRARY_PATH=$(tr -s ' \n' ':' <<eot
+$HOME/lib/
+$HOME/netpbm/lib/
+$HOME/vtk5/lib/vtk-5.10
+$HOME/.linuxbrew/lib
+$HOME/.linuxbrew/opt/curl/lib 
+$HOME/.linuxbrew/opt/zlib/lib
+$HOME/lib64/
+eot
+):$LD_LIBRARY_PATH
+
+export PATH=$(tr -s ' \n' ':' <<eot
+$HOME/bin 
+$HOME/R/bin/
+$HOME/netpbm/bin
+$HOME/bin/ants.bin 
+$HOME/.linuxbrew/bin 
+$HOME/vtk/bin
+$HOME/bak/anaconda/bin
+$HOME/usr/bin
+/usr/sbin
+eot
+):$PATH
+
+export C_INCLUDE_PATH=$(tr -s ' \n' ':' <<eot
+$HOME/include 
+$HOME/netpbm/include 
+eot
+):$C_INCLUDE_PATH
+
+export LIBRARY_PATH=$(tr -s ' \n' ':'<<eot
+$HOME/lib 
+$HOME/netpbm/lib
+eot
+):$LIBRARY_PATH
+export PKG_CONFIG_PATH=$(tr -s ' \n' ':' <<eot
+$HOME/lib/pkgconfig 
+/usr/share/pkgconfig/ 
+/usr/lib64/pkgconfig/
+eot
+):$PKG_CONFIG_PATH
+export MAN_PATH=$(tr -s ' \n' ':' <<eot
+$HOME/man 
+$HOME/share/man 
+$HOME/netpbm/man
+$HOME/.linuxbrew/share/man
+eot
+):$MAN_PATH
+export PAGER='most'
+
+
+#export GEM_HOME=$HOME/gems
+#export RUBYOPT=rubygems
+#source /home/xst833/.rvm/scripts/rvm
+
+#default projectID
+export AllocID=p20394 #b1015
+#force TMPDIR
+test -z $TMPDIR || mkdir -p $TMPDIR
+
+#for java
+module load java
+export JAVA_HOME="`dirname $(which java)`/.."
+
+#for phantomjs
+#export PhantomExamplesDir=$HOME/bak/js/phantomjs-1.9.1-linux-x86_64/examples
+
+#for R
+export R_LIBS=$HOME/R/libs
+export R_SHARED_LIB_DIR=$HOME/R/lib64/R/lib/
+export R_INCLUDE_DIR=$HOME/R/lib64/R/include
+#for RMatlab
+source $R_LIBS/RMatlab/scripts/RMatlab.sh 
+
+export MODULE4MATLAB=r2013a #for matlabp to load
+
+#restrict ITK to only use allocated cores
+test -z $NCPU || export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=${NCPU}

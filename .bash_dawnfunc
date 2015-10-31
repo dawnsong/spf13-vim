@@ -1,0 +1,132 @@
+#!/bin/bash
+
+
+#colored man page
+export PAGER='most'
+
+IsFileExist(){ test ! -z "$1" && test -f "$1" ;  }
+
+#perl
+#source /home/dawnsong/perl5/perlbrew/etc/bashrc
+test -d $HOME/lib/perl5 && eval $(perl -I$HOME/lib/perl5 -Mlocal::lib=$HOME)
+
+##interactive mode
+if [[ $- == *i* ]]; then
+#    #advanced shell history
+#    export ASH_CFG="$HOME/.ash/conf/ash.conf"
+#    export PATH="${PATH}:$HOME/.ash/bin"
+#    source $HOME/.ash/lib/bash
+    shopt -s histappend
+    HISTCONTROL=ignoreboth #blank space and dup
+    HISTIGNORE='ls:bg:fg:history'
+    shopt -s cmdhist
+    PROMPT_COMMAND='history -a'
+
+    #git 
+    importrc $HOME/.git-completion.bashrc
+
+    function sshto () {
+      host=$1
+      shift
+      if [ $# -eq 0 ]; then 
+        ssh -X $host -t "cd '$PWD'; bash --login"
+      else 
+        ssh $host -t "cd '$PWD'; bash --login" $@
+      fi 
+    }
+
+
+    #Vim
+    alias vi='DISPLAY= vim'
+    alias vim='DISPLAY= vim'
+    alias gvim='gvim -X'
+    alias vvi=vvim
+    alias pushdn="pushd $@ >/dev/null"
+    alias popdn="popd >/dev/null"
+    # enable color support of ls and also add handy aliases
+    if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
+        eval "`dircolors -b $HOME/.ls_colors`"
+        alias ls='ls --color=auto --sort=time --reverse'
+        alias dir='ls --color=auto --format=vertical'
+        alias vdir='ls --color=auto --format=long'
+
+        #alias grep='grep --color=auto -HP'
+        alias grep='grep --color=auto'
+        alias fgrep='fgrep --color=auto'
+        alias egrep='egrep --color=auto'
+    fi
+
+
+    alias rm='rm -i'
+    alias df='df -hl'
+
+    #ls related quick access
+    alias ..="cd .."
+    alias ...="cd ../.."
+    alias -- -="cd -"
+    alias l.='ls -d .*'
+    alias ll='ls -lhvrt'
+    alias lld='ls -lUd */'
+    alias gnuplot='rlwrap -a -c gnuplot'
+    alias d='display'
+    alias v='viewnior 2>/dev/null'
+    md() { mkdir -p "$1" && cd "$1"; } 
+    lsgz(){ gzip -l $@; }
+
+    #for condor
+    alias cst='condor_status'
+    alias cq='condor_q'
+    alias crm='condor_rm'
+    alias crun='condor_run'
+
+    alias ccat='pycolor'
+
+    #notify-send alias, 20120206
+    function alert(){
+      test $# -ge 1 || { echo "alert pid something to say" 1>&2; exit 1; }
+      icond="/usr/share/icons/gnome/scalable/status";
+      pid=$1
+      shift
+      wait $pid && notify-send -i $icond/gtk-dialog-info.svg "$@ ^_^" &
+    }
+
+    function remindSaveEtcScripts(){
+        cd $HOME/.spf13-vim-3 ; git st ; git ci -a -m 'reminded save' && git push
+        cd $HOME/dawn/dawnbin ; git st ; git ci -a -m 'reminded save' && git push
+    }
+fi #interactive mode 
+
+
+
+#Clean PATH, LD_LIBRARY_PATH
+function rmpath(){
+   echo PATH=${PATH}|sed -e 's;:;\n;g' -e 's;'"$1"';;g' -e '/^$/d' -e 's;\n;:;g'
+   #echo ${@}|sed -e 's;:;\n;g' -e 's;'"$2"';;g' -e '/^$/d' -e 's;\n;:;g'  
+}
+function rmldpath(){
+   echo LD_LIBRARY_PATH=${LD_LIBRARY_PATH}|sed -e 's;:;\n;g' -e 's;'"$1"';;g' -e '/^$/d' -e 's;\n;:;g'  
+}
+function listpath(){
+  echo ${@:-$PATH} |sed 's/:/\n/g' |sed '/^[ \t]*$/d' | sed 's\/$\\g' 
+}
+function cleanpath(){
+  echo $@ | 
+  sed 's/:/\n/g' |
+  sed '/^[ \t]*$/d' | 
+  sed 's\/$\\g' | 
+  awk '
+  BEGIN{n=1;} 
+  {if( (!($1 in p))&&(0==system(sprintf("test -d %s", $1))) ){p[$1]=NR; sp[n++]=$1;} } 
+  END{for(i=1;i<n;i++)printf(":%s", sp[i]);}' 
+}
+
+
+#run at the very last, dawnsong
+export PATH=$(cleanpath ".:$HOME/bin:$HOME/dawn/bin:$PATH")
+#export LD_LIBRARY_PATH=$( cleanpath ".:$HOME/lib:$LD_LIBRARY_PATH" )
+export LD_LIBRARY_PATH=$( cleanpath ".:$LD_LIBRARY_PATH" )
+
+#afni
+ahdir=`apsearch -afni_help_dir`
+importrc $ahdir/all_progs.COMP.bash
+
