@@ -40,7 +40,7 @@ importrc $FMRIDIR/minc/minc-toolkit-config.sh
 
 
 #CAMIRO DTI
-export CAMINO_HEAP_SIZE=8000
+export CAMINO_HEAP_SIZE=16000  #16GB for java
 export MANPATH=$FMRIDIR/camino/man:$MANPATH
 #DTK, Diffusion toolkit
 export DTDIR=$FMRIDIR/dtk/

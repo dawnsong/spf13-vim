@@ -139,4 +139,5 @@ source $R_LIBS/RMatlab/scripts/RMatlab.sh
 export MODULE4MATLAB=r2013a #for matlabp to load
 
 #restrict ITK to only use allocated cores
+test -z $PBS_NUM_PPN || export NCPU=$PBS_NUM_PPN
 test -z $NCPU || export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=${NCPU}
