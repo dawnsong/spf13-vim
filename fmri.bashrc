@@ -77,7 +77,6 @@ $FMRIDIR/gary.fmri.bin
 $FMRIDIR/dcm4che/bin
 $FMRIDIR/dcmtk/bin
 $FMRIDIR/gdcm/bin
-$FMRIDIR/MRIConvert/bin
 $FMRIDIR/xnat/xnat_tools/
 $FMRIDIR/niftitools/bin/ 
 $FMRIDIR/niftitools/python  
