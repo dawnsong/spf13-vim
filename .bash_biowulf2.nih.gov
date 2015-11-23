@@ -114,7 +114,7 @@ export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 #export AllocID=p20394 #b1015
 
 #for java
-module load java
+module load java 2>/dev/null 1>&2
 export JAVA_HOME="`dirname $(which java)`/.."
 
 #for phantomjs
