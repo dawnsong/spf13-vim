@@ -1,3 +1,5 @@
+if ~isdeployed,
+
 %------------ FreeSurfer -----------------------------%
 fshome = getenv('FREESURFER_HOME');
 fsmatlab = sprintf('%s/matlab',fshome);
@@ -60,3 +62,4 @@ for i = 1:length(entries)
 end;
 clear all pattern entry entries;
 
+end %~isdeployed
