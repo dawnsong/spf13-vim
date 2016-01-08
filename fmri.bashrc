@@ -9,7 +9,7 @@ export ANTSPATH=`readlink -f $FMRIDIR/ants.bin/bin`/
 export ANTSCRIPTD=`readlink -f $FMRIDIR/ants.src/Scripts`/
 
 #for afni
-export DYLD_FALLBACK_LIBRARY_PATH=$FMRIDIR/afni.bin 
+export DYLD_FALLBACK_LIBRARY_PATH=$FMRIDIR/afni.bin
 export AFNI_DONT_LOGFILE=YES
 
 #freesurfer
@@ -81,7 +81,6 @@ $FMRIDIR/xnat/xnat_tools/
 $FMRIDIR/niftitools/bin/ 
 $FMRIDIR/niftitools/python  
 $FMRIDIR/niftitools/misc/wuminn-connectome/
-$FMRIDIR/fbirn/bin
 $FMRIDIR/circos/circos/bin
 $FMRIDIR/nlm/
 $FMRIDIR/EvaluateSegmentation/bin/
