@@ -115,6 +115,10 @@ eot
 ):$MAN_PATH
 export PAGER='most'
 
+#linuxBrew
+#ignore installing glibc binutils etc system files
+#otherwise, even ls/which/awk will be broken
+export HOMEBREW_BUILD_FROM_SOURCE=1
 
 #export GEM_HOME=$HOME/gems
 #export RUBYOPT=rubygems
