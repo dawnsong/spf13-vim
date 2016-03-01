@@ -81,6 +81,7 @@ $HOME/R/bin/
 $HOME/netpbm/bin
 $HOME/bin/ants.bin 
 $HOME/.linuxbrew/bin 
+$HOME/.linuxbrew/sbin 
 $HOME/vtk/bin
 $HOME/bak/anaconda/bin
 $HOME/usr/bin
