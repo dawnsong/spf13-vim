@@ -94,6 +94,11 @@ if [[ $- == *i* ]]; then
         cd $HOME/.spf13-vim-3 ; git st ; git ci -a -m 'reminded save' && git push
         cd $HOME/dawn/dawnbin ; git st ; git ci -a -m 'reminded save' && git push
     }
+
+    #load git if in Quest
+    if type "module" > /dev/null 2>&1 ; then 
+        module load git
+    fi
 fi #interactive mode 
 
 
