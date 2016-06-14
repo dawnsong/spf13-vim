@@ -148,6 +148,5 @@ export MODULE4MATLAB=r2013a #for matlabp to load
 test -z $PBS_NUM_PPN || export NCPU=$PBS_NUM_PPN
 if [[ ! -z $NCPU ]]; then  
     export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=${NCPU} #ITK
-    iCPU=$(icpu)
-    export OMP_NUM_THREADS=${iCPU} #OpenMP, Afni
+    export OMP_NUM_THREADS=$(icpu -1) #OpenMP, Afni
 fi
