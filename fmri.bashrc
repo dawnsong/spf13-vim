@@ -72,6 +72,7 @@ $FMRIDIR/elastix/bin
 $FMRIDIR/ART/art/bin
 $FMRIDIR/robex
 $FMRIDIR/mricron
+$FMRIDIR/mango
 $FMRIDIR/MRIConvert/bin/
 $FMRIDIR/gary.fmri.bin
 $FMRIDIR/dcm4che/bin
