@@ -45,6 +45,7 @@ addpath((sprintf('%s/fmri/matlab/eig3/',home)));
 addpath((sprintf('%s/fmri/matlab/export_fig/',home)));
 addpath(genpath(sprintf('%s/fmri/matlab/ite/code', home)));
 addpath(sprintf('%s/fmri/matlab/jsonlab', home));
+addpath(genpath(sprintf('%s/fmri/matlab/PengHC-MIToolbox-2.1.2', home)));
 
 %add my bin path
 dawnbind= getenv('DAWNBIND');
