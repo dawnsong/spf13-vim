@@ -18,8 +18,8 @@ pcre
 perl
 gsl
 matlab/r2013a
-R
 gcc/4.8.3
+ruby
 eom
 
 
@@ -79,6 +79,7 @@ $HOME/R/bin/
 $HOME/netpbm/bin
 $HOME/bin/ants.bin 
 $HOME/.linuxbrew/bin 
+$HOME/.linuxbrew/sbin 
 $HOME/vtk/bin
 $HOME/bak/anaconda/bin
 $HOME/usr/bin
@@ -112,6 +113,10 @@ eot
 ):$MAN_PATH
 export PAGER='most'
 
+#linuxBrew
+#ignore installing glibc binutils etc system files
+#otherwise, even ls/which/awk will be broken
+export HOMEBREW_BUILD_FROM_SOURCE=1
 
 #export GEM_HOME=$HOME/gems
 #export RUBYOPT=rubygems
@@ -142,6 +147,5 @@ export MODULE4MATLAB=r2013a #for matlabp to load
 test -z $PBS_NUM_PPN || export NCPU=$PBS_NUM_PPN
 if [[ ! -z $NCPU ]]; then  
     export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=${NCPU} #ITK
-    iCPU=$(icpu)
-    export OMP_NUM_THREADS=${iCPU} #OpenMP, Afni
+    export OMP_NUM_THREADS=$(icpu -1) #OpenMP, Afni
 fi

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+##dSourceLog=$HOME/tmp/log4env.$(basename $BASH_SOURCE)
+##Not going to work!!!
+##exec > ${dSourceLog} 2>&1
+
 #cannot be in sub-shell
 #rmComment <<eom |while read m; do  module load $m ; done
 while read m; do  module load $m ; done <<eom

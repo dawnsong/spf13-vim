@@ -94,6 +94,12 @@ if [[ $- == *i* ]]; then
         cd $HOME/.spf13-vim-3 ; git st ; git ci -a -m 'reminded save' && git push
         cd $HOME/dawn/dawnbin ; git st ; git ci -a -m 'reminded save' && git push
     }
+
+    #use anaconda git instead
+    ##load git if in Quest
+    #if type "module" > /dev/null 2>&1 ; then 
+    #    module load git
+    #fi
 fi #interactive mode 
 
 
@@ -122,9 +128,12 @@ function cleanpath(){
 
 
 #run at the very last, dawnsong
-export PATH=$(cleanpath ".:$HOME/bin:$HOME/dawn/bin:$PATH")
+PATH_CLEANED=$(cleanpath ".:$HOME/bin:$HOME/dawn/bin:$PATH")
+[[ -z $PATH_CLEANED ]] || export PATH=$PATH_CLEANED
+
 #export LD_LIBRARY_PATH=$( cleanpath ".:$HOME/lib:$LD_LIBRARY_PATH" )
-export LD_LIBRARY_PATH=$( cleanpath ".:$LD_LIBRARY_PATH" )
+LD_LIBRARY_PATH_CLEANED=$( cleanpath ".:$LD_LIBRARY_PATH" )
+[[ -z $LD_LIBRARY_PATH_CLEANED ]] || export LD_LIBRARY_PATH=$LD_LIBRARY_PATH_CLEANED
 
 #afni
 ahdir=`apsearch -afni_help_dir`
