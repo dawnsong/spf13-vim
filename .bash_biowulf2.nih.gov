@@ -2,7 +2,7 @@
 
 #cannot be in sub-shell
 #rmComment <<eom |while read m; do  module load $m ; done
-while read m; do  module load $m 2>/dev/null 1>&2 ; done <<eom
+while read m; do  module load $m ; done <<eom
 ruby
 cmake
 automake
@@ -24,7 +24,7 @@ graphviz
 eom
 
 #for FreeSurfer
-source $FREESURFER_HOME//SetUpFreeSurfer.sh 2>/dev/null 1>&2 
+source $FREESURFER_HOME//SetUpFreeSurfer.sh 
 
 ##for BLAS LAPACK
 #export BLAS=/software/lapack/3.4.0/lib/libblas.a
@@ -114,7 +114,7 @@ export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 #export AllocID=p20394 #b1015
 
 #for java
-module load java 2>/dev/null 1>&2
+module load java 
 export JAVA_HOME="`dirname $(which java)`/.."
 
 #for phantomjs
@@ -142,7 +142,7 @@ else
 fi
 test -z $SLURM_JOBID || TMPDIR=/lscratch/$SLURM_JOBID/$(whoami)
 #force TMPDIR #make sure tmp dir is writable 
-mkdir -p $TMPDIR 1>/dev/null 2>&1 && export TMPDIR || export TMPDIR=$defaultTmpDir
+mkdir -p $TMPDIR && export TMPDIR || export TMPDIR=$defaultTmpDir
 test -z $TMPDIR || mkdir -p $TMPDIR
 
 #for maximum compatibility, should not use most recent GCC
