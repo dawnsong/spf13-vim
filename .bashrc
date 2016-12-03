@@ -16,5 +16,3 @@ export PATH="$HOME/perl5/bin:$PATH";
 
 export AWKPATH=.:$HOME/dawn/dev.dawnbin/dlib4awk:$HOME/dawn/bin/dlib4awk
 
-# added by Anaconda 2.1.0 installer
-export PATH="/home/xst833/bak/anaconda/bin:$PATH"
