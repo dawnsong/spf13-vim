@@ -1,5 +1,10 @@
 
-Bundle 'aperezdc/vim-template'
+"Bundle 'aperezdc/vim-template'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'instant-markdown.vim'
 Bundle 'sgeb/vim-matlab'
+"UnBundle 'Shougo/neocomplete'
+"
+"UnBundle 'Shougo/neocomplete.vim.git'
+"UnBundle 'Shougo/neosnippet'
+"UnBundle 'Shougo/neosnippet-snippets'

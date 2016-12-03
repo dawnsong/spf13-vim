@@ -3,11 +3,13 @@
 export FMRIDIR=$HOME/fmri
 
 #ANTs
+#module load ANTs
+#export ANTSPATH=$(dirname $(readlink -f $(which ANTS)))/
 export ANTSPATH=`readlink -f $FMRIDIR/ants.bin/bin`/
 export ANTSCRIPTD=`readlink -f $FMRIDIR/ants.src/Scripts`/
 
 #for afni
-export DYLD_FALLBACK_LIBRARY_PATH=$FMRIDIR/afni.bin 
+export DYLD_FALLBACK_LIBRARY_PATH=$FMRIDIR/afni.bin
 export AFNI_DONT_LOGFILE=YES
 
 #freesurfer
@@ -38,7 +40,7 @@ importrc $FMRIDIR/minc/minc-toolkit-config.sh
 
 
 #CAMIRO DTI
-export CAMINO_HEAP_SIZE=8000
+export CAMINO_HEAP_SIZE=16000  #16GB for java
 export MANPATH=$FMRIDIR/camino/man:$MANPATH
 #DTK, Diffusion toolkit
 export DTDIR=$FMRIDIR/dtk/
@@ -53,6 +55,8 @@ alias snap='itksnap.sh'
 #afni, freesurfer.qa, ants.bin
 export PATH=$(tr -s ' \n' ':' <<eot
 $FMRIDIR/bin
+$FMRIDIR/maven/bin/
+$FMRIDIR/dicomBrowser/bin/
 $FMRIDIR/afni.bin
 $FSLDIR/bin
 $FMRIDIR/freesurfer.qa
@@ -68,27 +72,30 @@ $FMRIDIR/elastix/bin
 $FMRIDIR/ART/art/bin
 $FMRIDIR/robex
 $FMRIDIR/mricron
+$FMRIDIR/mango
 $FMRIDIR/MRIConvert/bin/
 $FMRIDIR/gary.fmri.bin
 $FMRIDIR/dcm4che/bin
 $FMRIDIR/dcmtk/bin
 $FMRIDIR/gdcm/bin
-$FMRIDIR/MRIConvert/bin
 $FMRIDIR/xnat/xnat_tools/
 $FMRIDIR/niftitools/bin/ 
 $FMRIDIR/niftitools/python  
 $FMRIDIR/niftitools/misc/wuminn-connectome/
-$FMRIDIR/fbirn/bin
 $FMRIDIR/circos/circos/bin
+$FMRIDIR/nlm/
+$FMRIDIR/EvaluateSegmentation/bin/
+$FMRIDIR/phantomjs/current/bin/
+$FMRIDIR/cde
 eot
 ):$PATH
 #for fMRI common lib
-export LD_LIBRARY_PATH=$(tr -s ' \n' ':' <<eot
+export LD_LIBRARY_PATH=$(rmComment <<eot | tr -s ' \n' ':' 
 $FMRIDIR/lib
 $FMRIDIR/nifticlib/lib
 $FMRIDIR/niftitools/lib
 $FMRIDIR/elastix/lib
-$FMRIDIR/gdcm/lib
+#$FMRIDIR/gdcm/lib
 eot
 ):$LD_LIBRARY_PATH
 

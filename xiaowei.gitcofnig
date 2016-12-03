@@ -1,0 +1,27 @@
+[user]
+	name = dawnsong
+	email = dawnwei.song@gmail.com
+[alias]
+	ci = commit
+	st = status
+	co = checkout
+	br = branch
+    bp = big-picture
+    bv = big-picture -v viewnior
+    lg = log --graph --abbrev-commit --decorate --date=relative --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    ver = rev-parse --short HEAD
+[core]
+	editor = vim
+	pager = most
+[color]
+	ui = true
+[color "diff"]
+	meta = blue black bold
+[help]
+	autocorrect = 1
+[url "git://github.com/"]
+	insteadOf = https://github.com/
+[url "git://"]
+	insteadOf = https://
+[url "git://"]
+	insteadOf = http://

@@ -1,3 +1,5 @@
+if ~isdeployed,
+
 %------------ FreeSurfer -----------------------------%
 fshome = getenv('FREESURFER_HOME');
 fsmatlab = sprintf('%s/matlab',fshome);
@@ -28,11 +30,13 @@ addpath(genpath(sprintf('%s/fmri/afni.matlab/',home)));
 addpath(genpath(sprintf('%s/fmri/bct.20121204/',home)));
 addpath(genpath(sprintf('%s/fmri/nbs1.2/',home)));
 addpath(genpath(sprintf('%s/fmri/gretna/',home)));
+%addpath((sprintf('%s/fmri/spm12/',home)));
+%addpath((sprintf('%s/fmri/spm12/toolbox/cat12',home)));
 addpath((sprintf('%s/fmri/spm8/',home)));
 addpath((sprintf('%s/fmri/spm8/toolbox/vbm8',home)));
 addpath(genpath(sprintf('%s/fmri/surfstat/',home)));
 addpath(genpath(sprintf('%s/fmri/panda/PANDA/',home)));
-addpath(genpath(sprintf('%s/fmri/matlab/gift/GroupICATv3.0a/icatb',home)));
+addpath(genpath(sprintf('%s/fmri/matlab/gift/GroupICATv4.0a/icatb',home)));
 addpath(genpath(sprintf('%s/fmri/matlab/rest/REST/',home)));
 addpath(genpath(sprintf('%s/fmri/matlab/mlsp/',home)));
 addpath((sprintf('%s/fmri/matlab/m2html/',home)));
@@ -40,19 +44,26 @@ addpath((sprintf('%s/fmri/matlab/BrainNetViewer/',home)));
 addpath((sprintf('%s/fmri/matlab/eig3/',home)));
 addpath((sprintf('%s/fmri/matlab/export_fig/',home)));
 addpath(genpath(sprintf('%s/fmri/matlab/ite/code', home)));
+addpath(sprintf('%s/fmri/matlab/jsonlab', home));
+addpath(genpath(sprintf('%s/fmri/matlab/PengHC-MIToolbox-2.1.2', home)));
 
-addpath((sprintf('%s/dawn/bin/',home)));
+%add my bin path
+dawnbind= getenv('DAWNBIND');
+addpath(genpath(dawnbind));
 clear home;
 
 %function filter_path(pattern)
-pattern='.git';
+pattern={'.git', '.svn'};
 all = path;
 [entries] = regexp(all, '([^:]+):', 'tokens');
 for i = 1:length(entries)
-     entry = char(entries{i});
-     if (~isempty(strfind(entry, pattern)))
-         rmpath(entry);
-     end;
+    entry = char(entries{i});
+    for j=1:length(pattern),
+         if (~isempty(strfind(entry, pattern{j})))
+             rmpath(entry);
+         end;
+    end
 end;
 clear all pattern entry entries;
 
+end %~isdeployed

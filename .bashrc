@@ -14,5 +14,4 @@ export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5";
 export PERL5LIB="$HOME/perl5/lib/perl5:$PERL5LIB";
 export PATH="$HOME/perl5/bin:$PATH";
 
-export AWKPATH=.:$HOME/dawn/dev.dawnbin/dlib4awk:$HOME/dawn/bin/dlib4awk
 

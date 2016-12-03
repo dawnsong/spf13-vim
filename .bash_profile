@@ -33,15 +33,19 @@ eot
 #dawnsong Env config
 TIME_LOGIN=`date`
 
+if [[ ! -z $DAWNBIND ]]; then export PATH=$DAWNBIND:$PATH; fi
 
-if [[ `uname -n` == q* ]]; then importrc $HOME/.bash_quest; fi
+host=${HOSTNAME:-$(uname -n)}
+if [[ $host =~ ^q ]]; then importrc $HOME/.bash_quest; fi
+if [[ $host =~ ^p ]]; then importrc $HOME/.bash_biowulf.nih.gov; fi
+if [[ $host =~ ^cn ]]; then importrc $HOME/.bash_biowulf2.nih.gov; fi
 
-importrc $HOME/.bash_`uname -n`
+importrc $HOME/.bash_${host}
 importrc $HOME/fmri/fmri.bashrc
 
 #importrc "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 #assure my profile is loaded at the very end
-importrc ~/.bash_dawnfunc
+importrc $HOME/.bash_dawnfunc
 
 

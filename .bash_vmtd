@@ -126,3 +126,4 @@ export JAVA_HOME="`dirname $(which java)`/.."
 ####for phantomjs
 ###export PhantomExamplesDir=$HOME/bak/js/phantomjs-1.9.1-linux-x86_64/examples
 
+export AWKPATH=.:$HOME/dawn/dev.dawnbin/dlib4awk:$HOME/dawn/bin/dlib4awk

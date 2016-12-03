@@ -1,6 +1,0 @@
-[submodule ".vim/vundle.git"]
-	path = .vim/vundle.git
-	url = https://github.com/gmarik/vundle.git
-[submodule "LS_COLORS"]
-	path = LS_COLORS
-	url = ssh://git@github.com/trapd00r/LS_COLORS.git
