@@ -61,4 +61,4 @@ let g:AutoClosePumvisible = {"ENTER":"<C-Y>", "ESC":"<ESC>"}
 "Turn YouCompleteMe for program files
 let g:ycm_filetype_whitelist = {'sh':1}
 "let g:ycm_filetype_balcklist = {'text':1}
-let g:ycm_path_to_python_interpreter = '/home/xst833/bak/anaconda/bin/python'
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'

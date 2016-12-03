@@ -158,3 +158,5 @@ alias jobq='squeue -u $(whoami)'
 #for ITK thread count control
 test -z $SLURM_CPUS_ON_NODE || export NCPU=${SLURM_CPUS_ON_NODE}
 test -z $NCPU || export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=${NCPU}
+test -z $NCPU || export OMP_NUM_THREADS=${NCPU}
+
