@@ -143,12 +143,16 @@ importrc $ahdir/all_progs.COMP.bash
 #save pwd in case sudden exit
 #and for future recovery of working pwd
 lastPWD(){
+    pd=$(pwd)
+    #ignore home directory
+    if [[ "${pd%/}" == "${HOME%/}" ]]; then exit; fi
+
     #http://www.tldp.org/LDP/abs/html/intandnonint.html
     #check if interactive shell
     fd=0 #=/dev/stdin
     if [[ -t "$fd" || -p /dev/stdin  ]]; then
         sleep $(python -c "import random; print(random.uniform(0.0,5))");
-        printf "%s  #Node= %s  #Date= %s\n" "$(pwd)" "$(uname -n)" "$(date '+%F %T')"  >> $HOME/.lastpwd;
+        printf "%s  #Node= %s  #Date= %s\n" "${pd}" "$(uname -n)" "$(date '+%F %T')"  >> $HOME/.lastpwd;
     fi
 }
 trap lastPWD EXIT
