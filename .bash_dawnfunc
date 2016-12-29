@@ -145,7 +145,7 @@ importrc $ahdir/all_progs.COMP.bash
 lastPWD(){
     pd=$(pwd)
     #ignore home directory
-    if [[ "${pd%/}" == "${HOME%/}" ]]; then exit; fi
+    if [[ "${pd%/}" == "${HOME%/}" ]]; then return 0; fi
 
     #http://www.tldp.org/LDP/abs/html/intandnonint.html
     #check if interactive shell
