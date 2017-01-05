@@ -797,7 +797,7 @@ set list listchars=tab:>-,trail:.,precedes:<,extends:>
                     " <CR> close popup and save indent or expand snippet
                     imap <expr> <CR> CleverCr()
                     " <C-h>, <BS>: close popup and delete backword char.
-                    inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+                    "inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
                     inoremap <expr><C-y> neocomplete#smart_close_popup()
                 endif
                 " <TAB>: completion.
@@ -910,7 +910,7 @@ set list listchars=tab:>-,trail:.,precedes:<,extends:>
                     "inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 
                     " <C-h>, <BS>: close popup and delete backword char.
-                    inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+                    "inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
                     inoremap <expr><C-y> neocomplcache#close_popup()
                 endif
                 " <TAB>: completion.
