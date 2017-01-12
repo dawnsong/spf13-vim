@@ -79,7 +79,7 @@ if [[ $- == *i* ]]; then
     alias crm='condor_rm'
     alias crun='condor_run'
 
-    alias ccat='pycolor'
+    #alias ccat='pycolor'
 
     #notify-send alias, 20120206
     function alert(){

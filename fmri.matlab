@@ -20,11 +20,11 @@ clear fsfasthome fsfasttoolbox;
 
 user=getenv('USER'),
 node=getenv('HOSTNAME'),
-if strcmp(user, 'xst833'),
+%if strcmp(user, 'xst833'),
     home = getenv('HOME');
-else
-    home = '/home/xst833/';
-end
+%else
+%    home = '/home/xst833/';
+%end
 
 addpath(genpath(sprintf('%s/fmri/afni.matlab/',home)));
 addpath(genpath(sprintf('%s/fmri/bct.20121204/',home)));
