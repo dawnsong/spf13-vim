@@ -6,7 +6,8 @@
 
 #cannot be in sub-shell
 #rmComment <<eom |while read m; do  module load $m ; done
-while read m; do  module load $m 2>/dev/null 1>&2 ; done <<eom |rmComment
+#while read m; do module load $m 2>/dev/null 1>&2; done <<eom |rmComment
+while read m; do module load $m 2>/dev/null 1>&2; done <<eom
 ruby
 cmake
 automake
@@ -18,7 +19,6 @@ hdf5
 pcre
 GSL
 matlab
-#octave
 R
 afni
 fsl
