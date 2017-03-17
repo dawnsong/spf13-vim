@@ -1,5 +1,17 @@
 if ~isdeployed,
 
+self=mfilename;
+cself=[mfilename('fullpath'), '_cache.m'];
+[~, snewer]=system(['test ', cself, ' -nt ', self ' && echo 1 || echo 0']);
+if 1==str2num(snewer), %if cache is newer than me
+    fprintf(2, 'Loading cached startup path: %s\n', cself);
+    %load cache
+    pd=pwd;  path=fileparts(cself);
+    cd(path); path=startup_cache; addpath(path);  cd(pd);
+    clear self snewer cself pd path
+    return
+end %if cself does not exist, it is Ok, system will think it fails to be newer!
+
 %------------ FreeSurfer -----------------------------%
 fshome = getenv('FREESURFER_HOME');
 fsmatlab = sprintf('%s/matlab',fshome);
@@ -46,7 +58,7 @@ fmriTools={
 'matlab/export_fig';
 'matlab/ite/code';
 'matlab/jsonlab';
-'matlab/MIToolbox';
+%'matlab/MIToolbox';
 };
 for i=1:size(fmriTools, 1),
     dir=sprintf(['%s/' fmriTools{i}], home);
@@ -78,4 +90,7 @@ for i = 1:length(entries)
 end;
 clear all pattern entry entries;
 
+
+savepath(cself)
+clear self cself snewer
 end %~isdeployed
