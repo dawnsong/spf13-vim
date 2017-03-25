@@ -42,13 +42,13 @@ fmriTools={
 'fmri/afni.matlab';
 'fmri/bct.20121204';
 'fmri/nbs1.2';
-'gretna';
+'fmri/gretna';
 % 'spm12';
 % 'spm12/toolbox/cat12';
-'spm8';
-'spm8/toolbox/vbm8';
-'surfstat';
-'panda/PANDA';
+'fmri/spm8';
+'fmri/spm8/toolbox/vbm8';
+'fmri/surfstat';
+'fmri/panda/PANDA';
 'matlab/gift/GroupICATv4.0a/icatb';
 'matlab/rest/REST';
 'matlab/mlsp';
