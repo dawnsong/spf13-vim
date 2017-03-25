@@ -79,7 +79,7 @@ if [[ $- == *i* ]]; then
     alias crm='condor_rm'
     alias crun='condor_run'
 
-    alias ccat='pycolor'
+    #alias ccat='pycolor'
 
     #notify-send alias, 20120206
     function alert(){
@@ -139,3 +139,20 @@ LD_LIBRARY_PATH_CLEANED=$( cleanpath ".:$LD_LIBRARY_PATH" )
 ahdir=`apsearch -afni_help_dir`
 importrc $ahdir/all_progs.COMP.bash
 
+
+#save pwd in case sudden exit
+#and for future recovery of working pwd
+lastPWD(){
+    pd=$(pwd)
+    #ignore home directory
+    if [[ "${pd%/}" == "${HOME%/}" ]]; then return 0; fi
+
+    #http://www.tldp.org/LDP/abs/html/intandnonint.html
+    #check if interactive shell
+    fd=0 #=/dev/stdin
+    if [[ -t "$fd" || -p /dev/stdin  ]]; then
+        sleep $(python -c "import random; print(random.uniform(0.0,5))");
+        printf "%s  #Node= %s  #Date= %s\n" "${pd}" "$(uname -n)" "$(date '+%F %T')"  >> $HOME/.lastpwd;
+    fi
+}
+trap lastPWD EXIT

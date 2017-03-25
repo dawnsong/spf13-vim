@@ -6,7 +6,8 @@
 
 #cannot be in sub-shell
 #rmComment <<eom |while read m; do  module load $m ; done
-while read m; do  module load $m 2>/dev/null 1>&2 ; done <<eom
+#while read m; do module load $m 2>/dev/null 1>&2; done <<eom |rmComment
+while read m; do module load $m 2>/dev/null 1>&2; done <<eom
 ruby
 cmake
 automake
@@ -25,6 +26,7 @@ freesurfer
 circos
 pigz
 graphviz
+julialang
 eom
 
 #for FreeSurfer
@@ -149,6 +151,10 @@ test -z $SLURM_JOBID || TMPDIR=/lscratch/$SLURM_JOBID/$(whoami)
 mkdir -p $TMPDIR 1>/dev/null 2>&1 && export TMPDIR || export TMPDIR=$defaultTmpDir
 test -z $TMPDIR || mkdir -p $TMPDIR
 
+#MCR cache location can affect performance
+#https://hpc.nih.gov/apps/Matlab_compiler.html
+export MCR_CACHE_ROOT=$TMPDIR
+
 #for maximum compatibility, should not use most recent GCC
 #load  gcc/4.9.1 as final step to build correct Env
 #module load  gcc/4.9.1
@@ -158,3 +164,6 @@ alias jobq='squeue -u $(whoami)'
 #for ITK thread count control
 test -z $SLURM_CPUS_ON_NODE || export NCPU=${SLURM_CPUS_ON_NODE}
 test -z $NCPU || export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=${NCPU}
+test -z $NCPU || export OMP_NUM_THREADS=${NCPU}
+
+
