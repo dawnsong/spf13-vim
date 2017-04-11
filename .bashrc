@@ -16,3 +16,4 @@ export PATH="$HOME/perl5/bin:$PATH";
 
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH=$PATH:/home/dawnsong/fmri/afni.bin
