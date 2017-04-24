@@ -30,7 +30,7 @@ julialang
 eom
 
 #for FreeSurfer
-source $FREESURFER_HOME//SetUpFreeSurfer.sh 
+source $FREESURFER_HOME//SetUpFreeSurfer.sh  >/dev/null 2>&1
 
 ##for BLAS LAPACK
 #export BLAS=/software/lapack/3.4.0/lib/libblas.a
@@ -120,7 +120,7 @@ export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 #export AllocID=p20394 #b1015
 
 #for java
-module load java 
+module load java  >/dev/null 2>&1
 export JAVA_HOME="`dirname $(which java)`/.."
 
 #for phantomjs
