@@ -155,4 +155,4 @@ lastPWD(){
         printf "%s  #Node= %s  #Date= %s\n" "${pd}" "$(uname -n)" "$(date '+%F %T')"  >> $HOME/.lastpwd;
     fi
 }
-trap lastPWD SIGINT SIGTERM EXIT
+trap lastPWD SIGTERM EXIT
