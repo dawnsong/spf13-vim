@@ -126,6 +126,11 @@ function cleanpath(){
   END{for(i=1;i<n;i++)printf(":%s", sp[i]);}' 
 }
 
+#add dawnbin subdirs
+for p in $(cat $HOME/dawn/bin/dawnbin.subdirs|tr '\n' ' '); do 
+    test -d $HOME/dawn/bin/$p || continue
+    export PATH=$HOME/dawn/bin/$p:$PATH
+done
 
 #run at the very last, dawnsong
 PATH_CLEANED=$(cleanpath ".:$HOME/bin:$HOME/dawn/bin:$PATH")
