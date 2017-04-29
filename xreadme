@@ -1,0 +1,9 @@
+for future spf13 upgrade reference:
+1. save my etc changes and git ci -a and push to my github
+2. delete my current .spf13-vim-3 dir
+3. fresh install .spf13-vim 
+by:     sh <(curl https://j.mp/spf13-vim3 -L)
+4. cd .spf13-vim-3 && rm .vimrc.local
+5. change config url to upstream, and set the url to 
+ssh+git://git@github.com/dawnsong/spf13-vim
+6. git pull and merge
