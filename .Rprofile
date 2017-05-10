@@ -1,0 +1,2 @@
+
+chooseCRANmirror(graphics=FALSE)
