@@ -1,11 +1,12 @@
 
 filetype plugin indent on
 
-Bundle 'aperezdc/vim-template'
+"Template
 let g:username = 'Xiaowei.Song'
 let g:email = 'dawnwei.song@gmail.com'
 let g:license= 'Academy Free License (AFL)'
 ""unlet g:templates_plugin_loaded = 0
+let g:templates_directory = "~/.spf13-vim-3/xtemplates"
 
 "Auto formatting, rm blank lines"
 ""autocmd BufWritePre *.html :%s/\s\+$//e
