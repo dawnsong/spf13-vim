@@ -104,13 +104,13 @@ $HOME/lib/pkgconfig
 /usr/lib64/pkgconfig/
 eot
 ):$PKG_CONFIG_PATH
-export MAN_PATH=$(tr -s ' \n' ':' <<eot
+export MANPATH=$(tr -s ' \n' ':' <<eot
 $HOME/man 
 $HOME/share/man 
 $HOME/netpbm/man
 $HOME/.linuxbrew/share/man
 eot
-):$MAN_PATH
+):$MANPATH
 export PAGER='most'
 
 #linuxBrew
