@@ -3,7 +3,6 @@
 #cannot be in sub-shell
 #rmComment <<eom |while read m; do  module load $m ; done
 while read m; do  module load $m ; done <<eom 
-utilities 
 cmake/2.8.11.1 
 autoconf 
 fftw  
@@ -148,4 +147,8 @@ test -z $PBS_NUM_PPN || export NCPU=$PBS_NUM_PPN
 if [[ ! -z $NCPU ]]; then  
     export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=${NCPU} #ITK
     export OMP_NUM_THREADS=$(icpu -1) #OpenMP, Afni
+fi
+
+if [[  $- == *i*   ]]; then 
+    module load utilities
 fi
