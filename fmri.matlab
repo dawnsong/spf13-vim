@@ -33,7 +33,7 @@ clear fsfasthome fsfasttoolbox;
 user=getenv('USER'),
 node=getenv('HOSTNAME'),
 %if strcmp(user, 'xst833'),
-if ismember(user, {'xst833', 'tbp688'})
+if ismember(user, {'xst833', 'tbp688', 'dawnsong', 'songx4'})
     home = getenv('HOME'),
 else
     home = '/home/xst833/';
