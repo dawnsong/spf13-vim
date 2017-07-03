@@ -33,10 +33,11 @@ clear fsfasthome fsfasttoolbox;
 user=getenv('USER'),
 node=getenv('HOSTNAME'),
 %if strcmp(user, 'xst833'),
-    home = getenv('HOME');
-%else
-%    home = '/home/xst833/';
-%end
+if ismember(user, {'xst833', 'tbp688'})
+    home = getenv('HOME'),
+else
+    home = '/home/xst833/';
+end
 
 fmriTools={
 'fmri/afni.matlab';
