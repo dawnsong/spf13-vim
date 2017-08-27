@@ -1,7 +1,8 @@
 if ~isdeployed,
 
 self=mfilename;
-cself=[mfilename('fullpath'), '_cache.m'];
+matlabver = version('-release');
+cself=[mfilename('fullpath'),'_', matlabver , '_cache.m'];
 [~, snewer]=system(['test ', cself, ' -nt ', self ' && echo 1 || echo 0']);
 if 1==str2num(snewer), %if cache is newer than me
     fprintf(2, 'Loading cached startup path: %s\n', cself);
