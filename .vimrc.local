@@ -71,3 +71,5 @@ let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 
 "Try utf-8 and gbk
 set fencs=utf-8,gbk
+
+set shortmess+=A "don't print swap file exist warning

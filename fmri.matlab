@@ -7,9 +7,11 @@ cself=[mfilename('fullpath'),'_', matlabver , '_cache.m'];
 if 1==str2num(snewer), %if cache is newer than me
     fprintf(2, 'Loading cached startup path: %s\n', cself);
     %load cache
-    pd=pwd;  path=fileparts(cself);
-    cd(path); path=startup_cache; addpath(path);  cd(pd);
-    clear self snewer cself pd path
+    pd=pwd;  [pathn, scriptn]=fileparts(cself);
+    cd(pathn); 
+    addpath(scriptn);  
+    cd(pd);
+    clear self snewer cself pd pathn scriptn
     return
 end %if cself does not exist, it is Ok, system will think it fails to be newer!
 
@@ -95,4 +97,6 @@ clear all pattern entry entries;
 
 savepath(cself)
 clear self cself snewer
-end %~isdeployed
+%else %~isdeployed
+%    fprintf('I am deployed')
+end 
