@@ -9,9 +9,10 @@ if 1==str2num(snewer), %if cache is newer than me
     %load cache
     pd=pwd;  [pathn, scriptn]=fileparts(cself);
     cd(pathn); 
-    addpath(scriptn);  
+    eval(sprintf('npath=%s;', scriptn)); path(npath);
+    addpath(pathn);  
     cd(pd);
-    clear self snewer cself pd pathn scriptn
+    clear self snewer cself pd pathn scriptn npath
     return
 end %if cself does not exist, it is Ok, system will think it fails to be newer!
 
