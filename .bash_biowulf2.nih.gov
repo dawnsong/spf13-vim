@@ -27,6 +27,7 @@ circos
 pigz
 graphviz
 julialang
+tmux
 eom
 
 #for FreeSurfer
