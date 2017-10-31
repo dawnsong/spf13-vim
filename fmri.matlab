@@ -1,14 +1,18 @@
 if ~isdeployed,
 
 self=mfilename;
-cself=[mfilename('fullpath'), '_cache.m'];
+matlabver = version('-release');
+cself=[mfilename('fullpath'),'_', matlabver , '_cache.m'];
 [~, snewer]=system(['test ', cself, ' -nt ', self ' && echo 1 || echo 0']);
 if 1==str2num(snewer), %if cache is newer than me
     fprintf(2, 'Loading cached startup path: %s\n', cself);
     %load cache
-    pd=pwd;  path=fileparts(cself);
-    cd(path); path=startup_cache; addpath(path);  cd(pd);
-    clear self snewer cself pd path
+    pd=pwd;  [pathn, scriptn]=fileparts(cself);
+    cd(pathn); 
+    eval(sprintf('npath=%s;', scriptn)); path(npath);
+    addpath(pathn);  
+    cd(pd);
+    clear self snewer cself pd pathn scriptn npath
     return
 end %if cself does not exist, it is Ok, system will think it fails to be newer!
 
@@ -33,10 +37,11 @@ clear fsfasthome fsfasttoolbox;
 user=getenv('USER'),
 node=getenv('HOSTNAME'),
 %if strcmp(user, 'xst833'),
-    home = getenv('HOME');
-%else
-%    home = '/home/xst833/';
-%end
+if ismember(user, {'xst833', 'tbp688', 'dawnsong', 'songx4'})
+    home = getenv('HOME'),
+else
+    home = '/home/xst833/';
+end
 
 fmriTools={
 'fmri/afni.matlab';
@@ -93,4 +98,6 @@ clear all pattern entry entries;
 
 savepath(cself)
 clear self cself snewer
-end %~isdeployed
+%else %~isdeployed
+%    fprintf('I am deployed')
+end 

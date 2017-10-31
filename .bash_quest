@@ -3,7 +3,6 @@
 #cannot be in sub-shell
 #rmComment <<eom |while read m; do  module load $m ; done
 while read m; do  module load $m ; done <<eom 
-utilities 
 cmake/2.8.11.1 
 autoconf 
 fftw  
@@ -20,6 +19,7 @@ gsl
 matlab/r2013a
 gcc/4.8.3
 ruby
+bzip2
 eom
 
 
@@ -104,13 +104,13 @@ $HOME/lib/pkgconfig
 /usr/lib64/pkgconfig/
 eot
 ):$PKG_CONFIG_PATH
-export MAN_PATH=$(tr -s ' \n' ':' <<eot
+export MANPATH=$(tr -s ' \n' ':' <<eot
 $HOME/man 
 $HOME/share/man 
 $HOME/netpbm/man
 $HOME/.linuxbrew/share/man
 eot
-):$MAN_PATH
+):$MANPATH
 export PAGER='most'
 
 #linuxBrew
@@ -148,4 +148,8 @@ test -z $PBS_NUM_PPN || export NCPU=$PBS_NUM_PPN
 if [[ ! -z $NCPU ]]; then  
     export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=${NCPU} #ITK
     export OMP_NUM_THREADS=$(icpu -1) #OpenMP, Afni
+fi
+
+if [[  $- == *i*   ]]; then 
+    module load utilities
 fi
