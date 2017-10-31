@@ -168,3 +168,8 @@ test -z $NCPU || export OMP_NUM_THREADS=${NCPU}
 
 
 export DAWNBIND=/home/songx4/dawn/bin
+
+#if interactive mode, fix backspace put ^? in vim
+if [[ $- == *i* ]]; then 
+    stty erase '^?'
+fi
