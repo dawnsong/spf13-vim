@@ -100,4 +100,10 @@ savepath(cself)
 clear self cself snewer
 %else %~isdeployed
 %    fprintf('I am deployed')
+
+%set default figure settings 
+set(0, 'defaultTextFontSize', 16)
+set(0, 'defaultAxisFontSize', 16)
+set(0, 'defaultLineLineWidth', 2)
+
 end 
