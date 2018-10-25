@@ -1,4 +1,6 @@
-if ~isdeployed,
+if isdeployed,
+    return
+else
 
 self=mfilename;
 matlabver = version('-release');
@@ -55,6 +57,7 @@ fmriTools={
 'fmri/surfstat';
 'fmri/panda/PANDA';
 'matlab/gift/GroupICATv4.0a/icatb';
+'matlab/simtb_v18';
 'matlab/rest/REST';
 'matlab/mlsp';
 'matlab/m2thml';
