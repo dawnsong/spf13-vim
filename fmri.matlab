@@ -1,9 +1,10 @@
 if ~isdeployed,
 
-self=mfilename;
+self=mfilename('fullpath');
 matlabver = version('-release');
 cself=[mfilename('fullpath'),'_', matlabver , '_cache.m'];
-[~, snewer]=system(['test ', cself, ' -nt ', self ' && echo 1 || echo 0']);
+cmd=['test ', cself, ' -nt ', self '.m && echo 1 || echo 0'];
+[~, snewer]=system(cmd);
 if 1==str2num(snewer), %if cache is newer than me
     fprintf(2, 'Loading cached startup path: %s\n', cself);
     %load cache
@@ -103,7 +104,7 @@ clear self cself snewer
 
 %set default figure settings 
 set(0, 'defaultTextFontSize', 16)
-set(0, 'defaultAxisFontSize', 16)
 set(0, 'defaultLineLineWidth', 2)
+set(0, 'defaultAxesFontSize', 16)
 
 end 
