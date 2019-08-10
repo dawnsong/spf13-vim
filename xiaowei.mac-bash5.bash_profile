@@ -12,8 +12,9 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 #https://superuser.com/questions/207298/mac-terminal-iterm-history-cursor-problems
 cMagneta=$(tput setaf 5)
 cCyan=$(tput setaf 6)
+cLightBlue="\033[01;34m"
 cReset=$(tput sgr0)
-export PS1="\[$cMagneta\]\h:\[$cCyan\]\w$ \[$cReset\]"
+export PS1="\[$cLightBlue\]\h:\[$cCyan\]\w$ \[$cReset\]"
 
 #env
 export LOCATE_PATH=/Users/songx4/var/locate/locate.db
@@ -21,6 +22,7 @@ export LOCATE_CONFIG=/Users/songx4/etc/locate.rc
 
 export PATH=$(tr -s ' \n' ':' <<eot
 $HOME/bin/
+$HOME/dawn/bin/
 /Applications/anaconda3/bin/
 /usr/local/opt/coreutils/libexec/gnubin/
 /usr/local/opt/ruby/bin/
@@ -58,6 +60,8 @@ export CPPFLAGS="$(echo $xCPPFLAGS|sed -e 's/:$//' -e 's/:/  -I/g') $CPPFLAGS"
 export MANPATH=$(tr -s '\n' ':' <<eom
 /usr/local/opt/coreutils/libexec/man
 /usr/local/opt/gawk/share/man
+/usr/local/man 
+/usr/local/share/man
 $MANPATH
 eom
 )
