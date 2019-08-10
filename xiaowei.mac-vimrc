@@ -71,7 +71,7 @@ set foldlevelstart=10 "when open a new buffer
 "toggle folds, nothing should be put behind za, otherwise,it will be mapped!
 nnoremap <space> za 
 
-"move by visual lines, ignoring fake wrapped lines
+"move by visual lines, not ignoring the fake wrapped lines of default j/k
 nnoremap j gj
 nnoremap k gk
 
