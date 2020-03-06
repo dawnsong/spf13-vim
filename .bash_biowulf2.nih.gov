@@ -72,6 +72,7 @@ eot
 
 export PATH=$(tr -s ' \n' ':' <<eot
 $HOME/bin 
+$HOME/anaconda3/bin
 $HOME/anaconda/bin
 $HOME/R/bin/
 $HOME/netpbm/bin
@@ -91,6 +92,7 @@ eot
 
 export LIBRARY_PATH=$(tr -s ' \n' ':'<<eot
 $HOME/lib 
+$HOME/anaconda3/lib
 $HOME/netpbm/lib
 eot
 ):$LIBRARY_PATH
@@ -167,10 +169,15 @@ test -z $SLURM_CPUS_ON_NODE || export NCPU=${SLURM_CPUS_ON_NODE}
 test -z $NCPU || export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=${NCPU}
 test -z $NCPU || export OMP_NUM_THREADS=${NCPU}
 
+#for GPU CUDA
+module use --append $HOME/xModules
+module load cuda10.2.lua  afni_Dec-2019.lua  cuDNN-7.6.5-cuda10.2.lua
+
 
 export DAWNBIND=/home/songx4/dawn/bin
 
 #if interactive mode, fix backspace put ^? in vim
 if [[ $- == *i* ]]; then 
     stty erase '^?'
+    alias j='julia --color=yes'
 fi

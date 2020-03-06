@@ -107,7 +107,8 @@ if [[ $- == *i* ]]; then
     #ITKSnap comp
     source $FMRIDIR/itksnap/c3d/share/bashcomp.sh
     #add afni auto complete
-    ahdir=`apsearch -afni_help_dir`
+    #ahdir=`apsearch -afni_help_dir`
+    ahdir=${HOME}/.afni/help
     if [ -f "$ahdir/all_progs.COMP.bash" ]; then
        . $ahdir/all_progs.COMP.bash
     fi
