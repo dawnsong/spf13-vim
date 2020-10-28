@@ -77,3 +77,6 @@ set fencs=utf-8,gbk
 set encoding=utf-8
 
 set shortmess+=A "don't print swap file exist warning
+
+set lazyredraw
+set ttyfast

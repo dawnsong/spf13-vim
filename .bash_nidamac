@@ -1,0 +1,34 @@
+
+
+
+export PATH=$(tr -s ' \n' ':' <<eot
+/usr/local/opt/gettext/bin
+/usr/local/opt/openssl@1.1/bin
+/usr/local/opt/sqlite/bin
+/usr/local/opt/grep/libexec/gnubin
+/usr/local/opt/findutils/libexec/gnubin
+/usr/local/opt/gnu-tar/libexec/gnubin
+/usr/local/opt/gnu-sed/libexec/gnubin
+/usr/local/opt/gnu-indent/libexec/gnubin
+/usr/local/opt/gnu-getopt/bin
+/usr/local/opt/grep/libexec/gnubin
+eot
+):$PATH
+
+
+export LDFLAGS=$(tr -s ' \n' ':' <<eot
+-L/usr/local/opt/gettext/lib
+-L/usr/local/opt/libffi/lib
+-L/usr/local/opt/openssl@1.1/lib
+-L/usr/local/opt/readline/lib
+-L/usr/local/opt/sqlite/lib
+eot
+):$LDFLAGS
+
+export CPPFLAGS=$(tr -s ' \n' ':' <<eot
+-I/usr/local/opt/gettext/include
+-I/usr/local/opt/openssl@1.1/include
+-I/usr/local/opt/readline/include
+-I/usr/local/opt/sqlite/include
+eot
+):$CPPFLAGS

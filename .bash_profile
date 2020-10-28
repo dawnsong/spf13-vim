@@ -45,6 +45,8 @@ importrc $HOME/fmri/fmri.bashrc
 
 #importrc "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+importrc $HOME/.bash_nidamac
+
 #assure my profile is loaded at the very end
 importrc $HOME/.bash_dawnfunc
 

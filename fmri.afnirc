@@ -1,6 +1,6 @@
 ***ENVIRONMENT
-AFNI_ORIENT = RPI
-AFNI_LEFT_IS_LEFT = NO
+//AFNI_ORIENT = RPI
+//AFNI_LEFT_IS_LEFT = NO
 AFNI_ALWAYS_LOCK = YES
 AFNI_DEFAULT_IMSAVE =  png
 
@@ -8,3 +8,10 @@ AFNI_DEFAULT_IMSAVE =  png
 AFNI_ANALYZE_ORIGINATOR = YES
 AFNI_ANALYZE_ORIENT =  RPI
 AFNI_ANALYZE_VIEW =  orig
+
+// not using pigz which can make whereami crash!
+// AFNI_COMPRESSOR = GZIP #this will output .nii.gz instead of .nii, which make my slicerd fail!!!
+
+
+// AFNI_WHEREAMI_MAX_FIND = 15
+

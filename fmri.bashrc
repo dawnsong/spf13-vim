@@ -2,6 +2,9 @@
 
 export FMRIDIR=$HOME/fmri
 
+#HCP
+importrc $FMRIDIR/hcp.workbench/hcp.bashrc
+
 #ANTs
 #module load ANTs
 #export ANTSPATH=$(dirname $(readlink -f $(which ANTS)))/
@@ -50,7 +53,7 @@ export DSI_PATH=$FMRIDIR/dtk/matrices
 export ARTHOME=$FMRIDIR/ART/art
 
 #itksnap
-alias snap='itksnap.sh'
+#alias snap='itksnap.sh'
 
 #afni, freesurfer.qa, ants.bin
 export PATH=$(tr -s ' \n' ':' <<eot

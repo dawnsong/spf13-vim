@@ -80,6 +80,7 @@ if [[ $- == *i* ]]; then
     alias crun='condor_run'
 
     #alias ccat='pycolor'
+    alias j='julia --color=yes'
 
     #notify-send alias, 20120206
     function alert(){
@@ -141,7 +142,7 @@ LD_LIBRARY_PATH_CLEANED=$( cleanpath ".:$LD_LIBRARY_PATH" )
 [[ -z $LD_LIBRARY_PATH_CLEANED ]] || export LD_LIBRARY_PATH=$LD_LIBRARY_PATH_CLEANED
 
 #afni
-ahdir=`apsearch -afni_help_dir`
+#ahdir=`apsearch -afni_help_dir`
 importrc $ahdir/all_progs.COMP.bash
 
 
