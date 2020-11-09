@@ -6,7 +6,7 @@ let g:username = 'Xiaowei.Song'
 let g:email = 'dawnwei.song@gmail.com'
 let g:license= 'Academy Free License (AFL)'
 ""unlet g:templates_plugin_loaded = 0
-let g:templates_directory = "~/.spf13-vim-3/xtemplates"
+let g:templates_directory = ($HOME . '/.spf13-vim-3/xtemplates')
 "let g:templates_debug=1
 
 "Auto formatting, rm blank lines"
@@ -69,7 +69,9 @@ let g:ycm_filetype_whitelist = {'sh':1}
 "let g:ycm_path_to_python_interpreter = '/home/xst833/bak/anaconda/bin/python'
 "let g:ycm_path_to_python_interpreter = '/home/xst833/bak/anaconda/bin/python2'
 "let g:ycm_server_python_interpreter = '/home/xst833/bak/anaconda/bin/python2'
-let g:ycm_server_python_interpreter = '/home/xst833/bak/anaconda3/bin/python'
+"let g:ycm_server_python_interpreter = '/home/xst833/bak/anaconda3/bin/python'
+"let g:ycm_server_python_interpreter = '~/anaconda3/bin/python'
+let g:ycm_server_python_interpreter = ($HOME . '/anaconda3/bin/python')
 
 
 "Try utf-8 and gbk
@@ -80,3 +82,6 @@ set shortmess+=A "don't print swap file exist warning
 
 set lazyredraw
 set ttyfast
+
+"set python3 support
+set pythonthreedll=/gpfs/gsfs11/users/songx4/bak/anaconda3/lib/libpython3.7m.so
